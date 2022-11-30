@@ -1,7 +1,7 @@
 <?php
 
 use Ssitdikov\MediascoutApiClient\ApiProvider;
-use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
+use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
 use Ssitdikov\MediascoutApiClient\Request\PingAuthRequest;
 use Ssitdikov\MediascoutApiClient\Response\PingResponse;
 use Symfony\Component\Dotenv\Dotenv;
@@ -22,6 +22,7 @@ try {
     $result = $provider->execute(
         new PingAuthRequest()
     );
-} catch (NotHostFoundException $exception) {
+} catch (HostNotFoundException $exception) {
 }
+
 print $result->getHost();

@@ -4,7 +4,7 @@ namespace Ssitdikov\MediascoutApiClient\Exception;
 
 use DomainException;
 
-class NotHostFoundException extends DomainException
+class HostNotFoundException extends DomainException
 {
 
 }
