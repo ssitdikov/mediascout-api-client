@@ -1,0 +1,20 @@
+{
+    "name": "ssitdikov/mediascout-api-client",
+    "description": "Mediascout API Client",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ssitdikov\\MediascoutApiClient\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Salavat Sitdikov",
+            "email": "sitsalavat@gmail.com"
+        }
+    ],
+    "require": {
+      "guzzlehttp/guzzle": "^7.5"
+    }
+}
