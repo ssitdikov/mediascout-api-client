@@ -2,13 +2,15 @@
 
 namespace Ssitdikov\MediascoutApiClient\Request;
 
-use Ssitdikov\MediascoutApiClient\Response\PingResponse;
+use Ssitdikov\MediascoutApiClient\Query\PingAuthQuery;
+use Ssitdikov\MediascoutApiClient\Response\PingAuthResponse;
 
-class PingRequest implements MediascoutApiRequestInterface
+class PingAuthRequest implements MediascoutApiRequestInterface
 {
+
     public function getRoute(): string
     {
-        return '/Ping';
+        return '/PingAuth';
     }
 
     public function getHttpMethod(): string
@@ -30,7 +32,7 @@ class PingRequest implements MediascoutApiRequestInterface
 
     public function getResultObject(): string
     {
-        return PingResponse::class;
+        return PingAuthResponse::class;
     }
 
 }

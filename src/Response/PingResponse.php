@@ -2,6 +2,8 @@
 
 namespace Ssitdikov\MediascoutApiClient\Response;
 
+use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
+
 class PingResponse implements MediascoutApiResponseInterface
 {
 
@@ -39,6 +41,6 @@ class PingResponse implements MediascoutApiResponseInterface
                 sprintf('Create new exception for error %s', $exception->getMessage())
             );
         }
-        throw new \Exception('Host not found in answer');
+        throw new NotHostFoundException('Host not found');
     }
 }

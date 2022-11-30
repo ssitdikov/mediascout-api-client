@@ -14,10 +14,18 @@ class ApiProvider
     /**
      * @param string $endpointUrl
      */
-    public function __construct(string $endpointUrl)
+    public function __construct(string $endpointUrl, string $login, string $password)
     {
-        $this->client = new Client();
+        $this->client = new Client([
+            'auth' => [$login, $password]
+        ]);
         $this->endpointUrl = $endpointUrl;
+    }
+
+    public function addHeader(string $key, string $value): self
+    {
+        $this->headers[$key] = $value;
+        return $this;
     }
 
     final public function execute(
