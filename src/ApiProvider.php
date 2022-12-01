@@ -3,6 +3,8 @@
 namespace Ssitdikov\MediascoutApiClient;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Exception\ServerException;
 use Ssitdikov\MediascoutApiClient\Request\MediascoutApiRequestInterface;
 use Ssitdikov\MediascoutApiClient\Response\MediascoutApiResponseInterface;
 
@@ -16,9 +18,7 @@ class ApiProvider
      */
     public function __construct(string $endpointUrl, string $login, string $password)
     {
-        $this->client = new Client([
-            'auth' => [$login, $password]
-        ]);
+        $this->client = new Client(['auth' => [$login, $password]]);
         $this->endpointUrl = $endpointUrl;
     }
 
@@ -28,18 +28,20 @@ class ApiProvider
         return $this;
     }
 
-    final public function execute(
-        MediascoutApiRequestInterface $request
-    ): MediascoutApiResponseInterface {
+    final public function execute(MediascoutApiRequestInterface $request): MediascoutApiResponseInterface {
         try {
             $response = $this->client->request(
                 $request->getHttpMethod(),
                 $this->endpointUrl . $request->getRoute(),
-                $request->getParams()
-            )->getBody();
+                $request->getParams());
             return ApiResponseSerializer::serialize($response, $request->getResultObject());
+        } catch (ServerException $exception) {
+            throw $exception;
+        } catch (BadResponseException $exception) {
+            $t = $exception->getResponse()->getBody();
+            throw $exception;
         } catch (\Exception $exception) {
-            // @TODO
+            throw $exception;
         }
     }
 }

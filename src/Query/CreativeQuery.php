@@ -2,11 +2,11 @@
 
 namespace Ssitdikov\MediascoutApiClient\Query;
 
+use Ssitdikov\MediascoutApiClient\Query\CreativeQueryChild\CreativeMediaDataItem;
+use Ssitdikov\MediascoutApiClient\Query\CreativeQueryChild\CreativeTextDataItem;
+
 class CreativeQuery
 {
-    /**
-     * @var string
-     */
     private string $initialContractId;
 
     private string $finalContractId;
@@ -25,9 +25,9 @@ class CreativeQuery
 
     private array $okvedCodes;
 
-    private object $mediaData;
+    private array $mediaData;
 
-    private object $textData;
+    private array $textData;
 
     public function __construct(
         string $initialContractId,
@@ -92,7 +92,6 @@ class CreativeQuery
         return $this->description;
     }
 
-
     /**
      * @return string
      */
@@ -120,15 +119,15 @@ class CreativeQuery
     /**
      * @return array
      */
-    public function getMediaData()
+    public function getMediaData(): array
     {
-        return $this->getMediaData();
+        return $this->mediaData;
     }
 
     /**
      * @return array
      */
-    public function getTextData()
+    public function getTextData(): array
     {
         return $this->textData;
     }
@@ -168,84 +167,39 @@ class CreativeQuery
     /**
      * @param array $creativeMediaDataItem
      */
-    public function setMediaData(array $creativeMediaDataItem): void
+    public function setMediaData(CreativeMediaDataItem $mediaData): void
     {
-        $this->mediaData[] = new class ($creativeMediaDataItem) {
-
-            private string $fileName;
-
-            private string $fileContentBase64;
-
-            private string $srcUrl;
-
-            private string $description;
-
-            public function __construct(array $creativeMediaDataItem)
-            {
-                $this->fileName = $creativeMediaDataItem['FileName'];
-                $this->fileContentBase64 = $creativeMediaDataItem['FileContentBase64'];
-                $this->srcUrl = $creativeMediaDataItem['SrcUrl'];
-                if ($creativeMediaDataItem['Description']) {
-                    $this->description = $creativeMediaDataItem['Description'];
-                }
-            }
-
-            /**
-             * @return string
-             */
-            public function getFileName(): string
-            {
-                return $this->fileName;
-            }
-
-            /**
-             * @return string
-             */
-            public function getFileContentBase64(): string
-            {
-                return $this->fileContentBase64;
-            }
-
-            /**
-             * @return string
-             */
-            public function getSrcUrl(): string
-            {
-                return $this->srcUrl;
-            }
-
-            /**
-             * @return string
-             */
-            public function getDescription(): string
-            {
-                return $this->description;
-            }
-        };
+        $this->mediaData[0] = $mediaData;
     }
-
 
     /**
      * @param array $creativeTextDataItem
      */
-    public function setTextData(array $creativeTextDataItem): void
+    public function setTextData(CreativeTextDataItem $textData): void
     {
-        $this->textData[] = new class($creativeTextDataItem) {
+        $this->textData[0] = $textData->serialize();
+    }
 
-            private string $textData;
 
-            public function __construct(array $creativeTextDataItem)
-            {
-                $this->textData = $creativeTextDataItem['TextData'];
-            }
+    public function serialize()
+    {
+        return [
+            'initialContractId' => $this->initialContractId,
+            'finalContractId' => $this->finalContractId,
+            'type' => $this->type,
+            'form' => $this->form,
+            'advertiserUrl' => $this->advertiserUrl,
+            'description' => $this->description,
+            'targetAudience' => $this->targetAudience,
+            'isSocial' => $this->isSocial,
+            'okvedCodes' => $this->okvedCodes,
+//            'mediaData' => $this->mediaData,
+            'textData' => $this->textData,
+        ];
+    }
 
-            /**
-             * @return string
-             */
-            public function getTextData(): string
-            {
-                return $this->textData;
-            }
-        };
+    public function __serialize(): array
+    {
+        return $this->serialize();
     }
 }

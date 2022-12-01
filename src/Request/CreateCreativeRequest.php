@@ -14,12 +14,12 @@ class CreateCreativeRequest implements MediascoutApiRequestInterface
 
     public function getRoute(): string
     {
-        return 'creatives/createCreative';
+        return '/Creatives/CreateCreative';
     }
 
     public function getHttpMethod(): string
     {
-        return self::HTTP_METHOD_GET;
+        return self::HTTP_METHOD_POST;
     }
 
     public function getHeaders(): array
@@ -29,8 +29,11 @@ class CreateCreativeRequest implements MediascoutApiRequestInterface
 
     public function getParams(): array
     {
+//        print(json_encode($this->creativeQuery->serialize(), JSON_UNESCAPED_UNICODE)) . "\n";
+//        print "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n";
         return [
-            'headers' => $this->getHeaders()
+            'headers' => $this->getHeaders(),
+            'json' => $this->creativeQuery->serialize(),
         ];
     }
 

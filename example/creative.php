@@ -2,10 +2,12 @@
 
 use Ssitdikov\MediascoutApiClient\ApiProvider;
 use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
+use Ssitdikov\MediascoutApiClient\Query\CreativeQueryChild\CreativeMediaDataItem;
 use Ssitdikov\MediascoutApiClient\Request\CreateCreativeRequest;
 use Ssitdikov\MediascoutApiClient\Response\PingResponse;
 use Symfony\Component\Dotenv\Dotenv;
 use Ssitdikov\MediascoutApiClient\Query\CreativeQuery;
+use Ssitdikov\MediascoutApiClient\Query\CreativeQueryChild\CreativeTextDataItem;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -31,12 +33,17 @@ $creativeQuery->setTargetAudience('Тестовый креатив');
 $creativeQuery->setIsSocial(true);
 $creativeQuery->setOkvedCodes(['Код ОКВЭД']);
 
+//$mediaData = new CreativeMediaDataItem('Название файла');
+$textData = new CreativeTextDataItem('Некий текст');
 
+//$creativeQuery->setMediaData($mediaData);
+$creativeQuery->setTextData($textData);
 
 try {
     /* @var PingResponse $result */
-    $result = $provider->execute(new CreateCreativeRequest($creativeQuery)
-    ));
+    $result = $provider->execute(new CreateCreativeRequest($creativeQuery));
 } catch (HostNotFoundException $exception) {
+
 }
+
 print $result->getHost();
