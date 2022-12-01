@@ -4,6 +4,7 @@ use Ssitdikov\MediascoutApiClient\ApiProvider;
 use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
 use Ssitdikov\MediascoutApiClient\Query\CreateFinalContractQuery;
 use Ssitdikov\MediascoutApiClient\Request\CreateFinalContractRequest;
+use Ssitdikov\MediascoutApiClient\Request\GetFinalContractsRequest;
 use Ssitdikov\MediascoutApiClient\Response\CreateInitialContractResponse;
 use Ssitdikov\MediascoutApiClient\Types\ContractInteractionTypes;
 use Ssitdikov\MediascoutApiClient\Types\ContractTypes;
@@ -21,7 +22,7 @@ $password = $_ENV['MEDIASCOUT_PASSWORD'];
 
 $provider = new ApiProvider($endpoint, $login, $password);
 try {
-    $query = (new CreateFinalContractQuery
+    $createFinalContractQuery = (new CreateFinalContractQuery
     (
         '25',
         '2022-11-30',
@@ -33,11 +34,22 @@ try {
         ->setSubjectType(ContractInteractionTypes::DISTRIBUTION);
 
     /* @var CreateInitialContractResponse $result */
-    $result = $provider->execute(
+    $createFinalContractResponse = $provider->execute(
         new CreateFinalContractRequest(
-            $query
+            $createFinalContractQuery
+        )
+    );
+
+    $getFinalContractsQuery = (new \Ssitdikov\MediascoutApiClient\Query\GetFinalContractsQuery())
+        ->setClientId('CLhY5jCy05xUakX7iyKGesew')
+        ->setStatus(\Ssitdikov\MediascoutApiClient\Types\ContractStatusTypes::ACTIVE);
+
+    $getFinalContractResponse = $provider->execute(
+        new GetFinalContractsRequest(
+            $getFinalContractsQuery
         )
     );
 } catch (NotHostFoundException $exception) {
 }
-var_dump($result);
+var_dump($createFinalContractResponse);
+var_dump($getFinalContractResponse);

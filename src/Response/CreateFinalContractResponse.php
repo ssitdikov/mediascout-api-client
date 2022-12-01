@@ -3,7 +3,6 @@
 namespace Ssitdikov\MediascoutApiClient\Response;
 
 use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
-use Ssitdikov\MediascoutApiClient\Object\FinalClient;
 use Ssitdikov\MediascoutApiClient\Object\FinalContract;
 
 class CreateFinalContractResponse implements MediascoutApiResponseInterface
