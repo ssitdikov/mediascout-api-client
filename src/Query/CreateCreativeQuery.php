@@ -2,10 +2,10 @@
 
 namespace Ssitdikov\MediascoutApiClient\Query;
 
-use Ssitdikov\MediascoutApiClient\Query\CreativeQueryChild\CreativeMediaDataItem;
-use Ssitdikov\MediascoutApiClient\Query\CreativeQueryChild\CreativeTextDataItem;
+use Ssitdikov\MediascoutApiClient\Query\CreateCreativeQueryChild\CreativeMediaDataItem;
+use Ssitdikov\MediascoutApiClient\Query\CreateCreativeQueryChild\CreativeTextDataItem;
 
-class CreativeQuery
+class CreateCreativeQuery
 {
     private string $initialContractId;
 
@@ -193,7 +193,7 @@ class CreativeQuery
             'targetAudience' => $this->targetAudience,
             'isSocial' => $this->isSocial,
             'okvedCodes' => $this->okvedCodes,
-//            'mediaData' => $this->mediaData,
+            'mediaData' => $this->mediaData,
             'textData' => $this->textData,
         ];
     }

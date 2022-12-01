@@ -2,12 +2,11 @@
 
 use Ssitdikov\MediascoutApiClient\ApiProvider;
 use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
-use Ssitdikov\MediascoutApiClient\Query\CreativeQueryChild\CreativeMediaDataItem;
 use Ssitdikov\MediascoutApiClient\Request\CreateCreativeRequest;
 use Ssitdikov\MediascoutApiClient\Response\PingResponse;
 use Symfony\Component\Dotenv\Dotenv;
-use Ssitdikov\MediascoutApiClient\Query\CreativeQuery;
-use Ssitdikov\MediascoutApiClient\Query\CreativeQueryChild\CreativeTextDataItem;
+use Ssitdikov\MediascoutApiClient\Query\CreateCreativeQuery;
+use Ssitdikov\MediascoutApiClient\Query\CreateCreativeQueryChild\CreativeTextDataItem;
 
 require __DIR__ . '/../vendor/autoload.php';
 
@@ -21,7 +20,7 @@ $password = $_ENV['MEDIASCOUT_PASSWORD'];
 
 $provider = new ApiProvider($endpoint, $login, $password);
 
-$creativeQuery = new CreativeQuery(
+$creativeQuery = new CreateCreativeQuery(
     'AAADgMygKIOkyGuPzl83W1ow',
     'CT6WZbMXPGcE2lx5Zfm-npAg',
     'CPM',
@@ -40,7 +39,6 @@ $textData = new CreativeTextDataItem('Некий текст');
 $creativeQuery->setTextData($textData);
 
 try {
-    /* @var PingResponse $result */
     $result = $provider->execute(new CreateCreativeRequest($creativeQuery));
 } catch (HostNotFoundException $exception) {
 

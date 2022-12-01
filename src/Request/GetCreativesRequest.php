@@ -1,20 +1,21 @@
 <?php
 
 namespace Ssitdikov\MediascoutApiClient\Request;
-use Ssitdikov\MediascoutApiClient\Query\CreateCreativeQuery;
 
-class CreateCreativeRequest implements MediascoutApiRequestInterface
+use Ssitdikov\MediascoutApiClient\Query\GetCreativesQuery;
+
+class GetCreativesRequest implements MediascoutApiRequestInterface
 {
-    private CreateCreativeQuery $creativeQuery;
+    private GetCreativesQuery $creativesQuery;
 
-    public function __construct(CreateCreativeQuery $creativeQuery)
+    public function __construct(GetCreativesQuery $creativesQuery)
     {
-        $this->creativeQuery = $creativeQuery;
+        $this->creativesQuery = $creativesQuery;
     }
 
     public function getRoute(): string
     {
-        return '/Creatives/CreateCreativeObject';
+        return '/Creatives/GetCreatives';
     }
 
     public function getHttpMethod(): string
@@ -31,12 +32,13 @@ class CreateCreativeRequest implements MediascoutApiRequestInterface
     {
         return [
             'headers' => $this->getHeaders(),
-            'json' => $this->creativeQuery->serialize(),
+            'json' => $this->creativesQuery,
         ];
     }
 
     public function getResultObject(): string
     {
-        return CreateCreativeRequest::class;
+        return GetCreativesQuery::class;
     }
+
 }

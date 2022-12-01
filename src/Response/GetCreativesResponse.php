@@ -2,18 +2,17 @@
 
 namespace Ssitdikov\MediascoutApiClient\Response;
 
-use Ssitdikov\MediascoutApiClient\Object\CreateCreativeObject;
-use Ssitdikov\MediascoutApiClient\Exception\{HostNotFoundException};
+use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
+use Ssitdikov\MediascoutApiClient\Object\GetCreativesObject;
 
-class CreateCreativeResponse implements MediascoutApiResponseInterface
+class GetCreativesResponse implements MediascoutApiResponseInterface
 {
-    private static CreateCreativeObject $creativeObject;
+    private GetCreativesObject $creativesObject;
 
     public static function init(string $response): self
     {
         try {
             $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
-            $creative = new CreateCreativeObject($result['id']);
             return new self();
         } catch (\Exception $exception) {
             throw new HostNotFoundException();

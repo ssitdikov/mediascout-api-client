@@ -1,6 +1,6 @@
 <?php
 
-namespace Ssitdikov\MediascoutApiClient\Query\CreativeQueryChild;
+namespace Ssitdikov\MediascoutApiClient\Query\CreateCreativeQueryChild;
 
 class CreativeTextDataItem
 {
