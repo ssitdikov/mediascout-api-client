@@ -31,6 +31,9 @@ class ApiProvider
     final public function execute(
         MediascoutApiRequestInterface $request
     ): MediascoutApiResponseInterface {
+//        $req = $request->getParams();
+//        var_dump($req);
+//        die();
         try {
             $response = $this->client->request(
                 $request->getHttpMethod(),
@@ -39,6 +42,7 @@ class ApiProvider
             )->getBody();
             return ApiResponseSerializer::serialize($response, $request->getResultObject());
         } catch (\Exception $exception) {
+            var_dump($exception->getMessage());
             // @TODO
         }
     }
