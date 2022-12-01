@@ -60,26 +60,4 @@ class FinalContract extends CreateFinalContractQuery
         $this->status = $status;
         return $this;
     }
-
-    public function unserialize($data)
-    {
-//        var_dump($data);
-//        die();
-//        [$id, $status, $number, $date, $amount, $vatIncluded, $clientId, $type, $subjectType, $actionType, $parentMainContractId] =
-//            unserialize(
-//                $data,
-//                false
-//            );
-//        $this->setId($id);
-//        $this->setStatus($status);
-//        $this->setNumber($number);
-//        $this->setDate($date);
-//        $this->setAmount($amount);
-//        $this->setVatIncluded($vatIncluded);
-//        $this->setClientId($clientId);
-//        $this->setType($type);
-//        $this->setSubjectType($subjectType);
-//        $this->setActionType($actionType);
-//        $this->setParentMainContractId($parentMainContractId);
-    }
 }

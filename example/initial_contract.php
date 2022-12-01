@@ -2,8 +2,8 @@
 
 use Ssitdikov\MediascoutApiClient\ApiProvider;
 use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
-use Ssitdikov\MediascoutApiClient\Query\CreateFinalContractQuery;
-use Ssitdikov\MediascoutApiClient\Request\CreateFinalContractRequest;
+use Ssitdikov\MediascoutApiClient\Query\CreateInitialContractQuery;
+use Ssitdikov\MediascoutApiClient\Request\CreateInitialContractRequest;
 use Ssitdikov\MediascoutApiClient\Response\CreateInitialContractResponse;
 use Ssitdikov\MediascoutApiClient\Types\ContractInteractionTypes;
 use Ssitdikov\MediascoutApiClient\Types\ContractTypes;
@@ -21,20 +21,22 @@ $password = $_ENV['MEDIASCOUT_PASSWORD'];
 
 $provider = new ApiProvider($endpoint, $login, $password);
 try {
-    $query = (new CreateFinalContractQuery
+    $query = (new CreateInitialContractQuery
     (
-        '25',
+        '27',
         '2022-11-30',
         true,
         'CLhY5jCy05xUakX7iyKGesew',
-        ContractTypes::SERVICE_AGREEMENT
+        ContractTypes::SERVICE_AGREEMENT,
+        'CTSmzOxt_FO0WP9TgTtiJ7zg',
+        'CLosG-tm5H_kiLEEZELl4rxw'
     ))
         ->setAmount(17500)
         ->setSubjectType(ContractInteractionTypes::DISTRIBUTION);
 
     /* @var CreateInitialContractResponse $result */
     $result = $provider->execute(
-        new CreateFinalContractRequest(
+        new CreateInitialContractRequest(
             $query
         )
     );

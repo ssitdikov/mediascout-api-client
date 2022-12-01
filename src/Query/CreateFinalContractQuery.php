@@ -196,30 +196,19 @@ class CreateFinalContractQuery
     }
 
     public function serialize() {
-        return [
-                    'number' => $this->getNumber(),
-                    'date' => $this->getDate(),
-                    'vatIncluded' => $this->isVatIncluded(),
-                    'clientId' => $this->getClientId(),
-                    'type' => $this->getType(),
-                    'amount' => $this->getAmount(),
+        return
+            [
+                'number' => $this->getNumber(),
+                'date' => $this->getDate(),
+                'vatIncluded' => $this->isVatIncluded(),
+                'clientId' => $this->getClientId(),
+                'type' => $this->getType(),
+                'amount' => $this->getAmount(),
                 'subjectType' => $this->getSubjectType(),
                 'actionType' => $this->getActionType(),
                 'parentMainContractId' => $this->getParentMainContractId()
             ];
-//        if ($this->getAmount()) {
-//            $data['amount'] = $this->getAmount();
-//        }
-//        if ($this->getSubjectType()) {
-//            $data['subjectType'] = $this->getSubjectType();
-//        }
-//        if ($this->getActionType()) {
-//            $data['actionType'] = $this->getActionType();
-//        }
-//        if ($this->parentMainContractId) {
-//            $data['parentMainContractId'] = $this->parentMainContractId;
-//        }
-//        return $data;
+
     }
 
     public function __serialize(): array

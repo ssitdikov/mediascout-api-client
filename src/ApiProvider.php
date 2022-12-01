@@ -31,9 +31,6 @@ class ApiProvider
     final public function execute(
         MediascoutApiRequestInterface $request
     ): MediascoutApiResponseInterface {
-//        $req = $request->getParams();
-//        var_dump($req);
-//        die();
         try {
             $response = $this->client->request(
                 $request->getHttpMethod(),

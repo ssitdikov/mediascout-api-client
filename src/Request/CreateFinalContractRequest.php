@@ -4,7 +4,6 @@ namespace Ssitdikov\MediascoutApiClient\Request;
 
 use Ssitdikov\MediascoutApiClient\Query\CreateFinalContractQuery;
 use Ssitdikov\MediascoutApiClient\Response\CreateFinalContractResponse;
-use Ssitdikov\MediascoutApiClient\Response\PingAuthResponse;
 
 class CreateFinalContractRequest implements MediascoutApiRequestInterface
 {
