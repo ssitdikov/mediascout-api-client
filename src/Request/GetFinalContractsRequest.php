@@ -37,7 +37,6 @@ class GetFinalContractsRequest implements MediascoutApiRequestInterface
 
     public function getParams(): array
     {
-        var_dump($this->getFinalContractsQuery->serialize());
         return [
             'headers' => $this->getHeaders(),
             'json' => $this->getFinalContractsQuery->serialize()

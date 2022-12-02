@@ -15,7 +15,7 @@ class GetFinalContractsResponse implements MediascoutApiResponseInterface
     public static function init(string $response): MediascoutApiResponseInterface
     {
         try {
-            $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
+            $result = json_decode($response, true, 4, JSON_THROW_ON_ERROR);
             $contracts = new self();
             if (count($result) > 0) {
                 foreach ($result as $contract) {
