@@ -3,13 +3,9 @@
 use Ssitdikov\MediascoutApiClient\ApiProvider;
 use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
 use Ssitdikov\MediascoutApiClient\Query\CreateInitialContractQuery;
-use Ssitdikov\MediascoutApiClient\Query\GetFinalContractsQuery;
-use Ssitdikov\MediascoutApiClient\Query\GetInitialContractsQuery;
 use Ssitdikov\MediascoutApiClient\Request\CreateInitialContractRequest;
-use Ssitdikov\MediascoutApiClient\Request\GetInitialContractsRequest;
 use Ssitdikov\MediascoutApiClient\Response\CreateInitialContractResponse;
 use Ssitdikov\MediascoutApiClient\Types\ContractInteractionTypes;
-use Ssitdikov\MediascoutApiClient\Types\ContractStatusTypes;
 use Ssitdikov\MediascoutApiClient\Types\ContractTypes;
 use Symfony\Component\Dotenv\Dotenv;
 
