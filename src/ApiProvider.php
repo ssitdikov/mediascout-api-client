@@ -31,10 +31,11 @@ class ApiProvider
     final public function execute(MediascoutApiRequestInterface $request): MediascoutApiResponseInterface {
         try {
             $response = $this->client->request(
-                $request->getHttpMethod(),
-                $this->endpointUrl . $request->getRoute(),
-                $request->getParams());
+                $request->getHttpMethod(), $this->endpointUrl . $request->getRoute(),
+                $request->getParams())->getBody();
+
             return ApiResponseSerializer::serialize($response, $request->getResultObject());
+
         } catch (ServerException $exception) {
             throw $exception;
         } catch (BadResponseException $exception) {

@@ -3,6 +3,7 @@
 namespace Ssitdikov\MediascoutApiClient\Request;
 
 use Ssitdikov\MediascoutApiClient\Query\GetCreativesQuery;
+use Ssitdikov\MediascoutApiClient\Response\GetCreativesResponse;
 
 class GetCreativesRequest implements MediascoutApiRequestInterface
 {
@@ -38,7 +39,7 @@ class GetCreativesRequest implements MediascoutApiRequestInterface
 
     public function getResultObject(): string
     {
-        return GetCreativesQuery::class;
+        return GetCreativesResponse::class;
     }
 
 }

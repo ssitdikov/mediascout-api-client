@@ -7,7 +7,6 @@ use Ssitdikov\MediascoutApiClient\Object\GetCreativesObject;
 
 class GetCreativesResponse implements MediascoutApiResponseInterface
 {
-    private GetCreativesObject $creativesObject;
 
     public static function init(string $response): self
     {

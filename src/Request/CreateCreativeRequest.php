@@ -2,6 +2,7 @@
 
 namespace Ssitdikov\MediascoutApiClient\Request;
 use Ssitdikov\MediascoutApiClient\Query\CreateCreativeQuery;
+use Ssitdikov\MediascoutApiClient\Response\CreateCreativeResponse;
 
 class CreateCreativeRequest implements MediascoutApiRequestInterface
 {
@@ -14,7 +15,7 @@ class CreateCreativeRequest implements MediascoutApiRequestInterface
 
     public function getRoute(): string
     {
-        return '/Creatives/CreateCreativeObject';
+        return '/Creatives/CreateCreative';
     }
 
     public function getHttpMethod(): string
@@ -29,6 +30,7 @@ class CreateCreativeRequest implements MediascoutApiRequestInterface
 
     public function getParams(): array
     {
+        print_r($this->creativeQuery->serialize());
         return [
             'headers' => $this->getHeaders(),
             'json' => $this->creativeQuery->serialize(),
@@ -37,6 +39,6 @@ class CreateCreativeRequest implements MediascoutApiRequestInterface
 
     public function getResultObject(): string
     {
-        return CreateCreativeRequest::class;
+        return CreateCreativeResponse::class;
     }
 }

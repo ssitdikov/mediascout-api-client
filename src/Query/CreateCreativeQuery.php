@@ -169,7 +169,7 @@ class CreateCreativeQuery
      */
     public function setMediaData(CreativeMediaDataItem $mediaData): void
     {
-        $this->mediaData[0] = $mediaData;
+        $this->mediaData[0] = $mediaData->serialize();
     }
 
     /**

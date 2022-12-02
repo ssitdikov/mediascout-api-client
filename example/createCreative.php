@@ -2,6 +2,7 @@
 
 use Ssitdikov\MediascoutApiClient\ApiProvider;
 use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
+use Ssitdikov\MediascoutApiClient\Query\CreateCreativeQueryChild\CreativeMediaDataItem;
 use Ssitdikov\MediascoutApiClient\Request\CreateCreativeRequest;
 use Ssitdikov\MediascoutApiClient\Response\PingResponse;
 use Symfony\Component\Dotenv\Dotenv;
@@ -34,10 +35,11 @@ $creativeQuery->setOkvedCodes(['Код ОКВЭД']);
 
 //$mediaData = new CreativeMediaDataItem('Название файла');
 $textData = new CreativeTextDataItem('Некий текст');
+$mediaData = new CreativeMediaDataItem('some file');
 
-//$creativeQuery->setMediaData($mediaData);
+$creativeQuery->setMediaData($mediaData);
 $creativeQuery->setTextData($textData);
-
+$creativeQuery->setMediaData($mediaData);
 try {
     $result = $provider->execute(new CreateCreativeRequest($creativeQuery));
 } catch (HostNotFoundException $exception) {
