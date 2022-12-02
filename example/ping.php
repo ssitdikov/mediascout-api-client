@@ -17,11 +17,10 @@ $login = $_ENV['MEDIASCOUT_LOGIN'];
 $password = $_ENV['MEDIASCOUT_PASSWORD'];
 
 $provider = new ApiProvider($endpoint, $login, $password);
+
 try {
-    /* @var PingResponse $result */
-    $result = $provider->execute(
-        new PingAuthRequest()
-    );
+    $result = $provider->execute(new PingAuthRequest());
 } catch (NotHostFoundException $exception) {
+
 }
 print $result->getHost();

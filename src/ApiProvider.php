@@ -39,7 +39,7 @@ class ApiProvider
             )->getBody();
             return ApiResponseSerializer::serialize($response, $request->getResultObject());
         } catch (\Exception $exception) {
-            // @TODO
+            throw $exception;
         }
     }
 }
