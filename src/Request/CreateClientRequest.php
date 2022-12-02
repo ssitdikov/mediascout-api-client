@@ -3,9 +3,7 @@
 namespace Ssitdikov\MediascoutApiClient\Request;
 
 use Ssitdikov\MediascoutApiClient\Query\CreateClientQuery;
-use Ssitdikov\MediascoutApiClient\Query\CreateFinalContractQuery;
 use Ssitdikov\MediascoutApiClient\Response\CreateClientResponse;
-use Ssitdikov\MediascoutApiClient\Response\CreateFinalContractResponse;
 
 class CreateClientRequest implements MediascoutApiRequestInterface
 {

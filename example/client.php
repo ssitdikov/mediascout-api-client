@@ -3,10 +3,13 @@
 use Ssitdikov\MediascoutApiClient\ApiProvider;
 use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
 use Ssitdikov\MediascoutApiClient\Query\CreateClientQuery;
+use Ssitdikov\MediascoutApiClient\Query\GetClientsQuery;
 use Ssitdikov\MediascoutApiClient\Request\CreateClientRequest;
+use Ssitdikov\MediascoutApiClient\Request\GetClientsRequest;
 use Ssitdikov\MediascoutApiClient\Response\CreateClientResponse;
 use Ssitdikov\MediascoutApiClient\Types\ClientCreationModesTypes;
 use Ssitdikov\MediascoutApiClient\Types\ClientLegalFormsTypes;
+use Ssitdikov\MediascoutApiClient\Types\ClientStatusTypes;
 use Symfony\Component\Dotenv\Dotenv;
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -36,17 +39,17 @@ try {
             $createClientQuery
         )
     );
-//
-//    $getFinalContractsQuery = (new GetFinalContractsQuery())
-//        ->setClientId('CLhY5jCy05xUakX7iyKGesew')
-//        ->setStatus(ContractStatusTypes::ACTIVE);
-//
-//    $getFinalContractResponse = $provider->execute(
-//        new GetFinalContractsRequest(
-//            $getFinalContractsQuery
-//        )
-//    );
+
+    $getClientsQuery = (new GetClientsQuery())
+        ->setId('CLCZcnsRGbHEeBgUIu1s_Eug')
+        ->setStatus(ClientStatusTypes::ACTIVE);
+
+    $getClientsResponse = $provider->execute(
+        new GetClientsRequest(
+            $getClientsQuery
+        )
+    );
 } catch (NotHostFoundException $exception) {
 }
 var_dump($createClientResponse);
-//var_dump($getFinalContractResponse);
+var_dump($getClientsResponse);
