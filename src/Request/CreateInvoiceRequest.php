@@ -31,7 +31,6 @@ class CreateInvoiceRequest implements MediascoutApiRequestInterface
 
     public function getParams(): array
     {
-        print_r($this->createInvoiceQuery->serialize());
         return [
             'headers' => $this->getHeaders(),
             'json' => $this->createInvoiceQuery->serialize()
