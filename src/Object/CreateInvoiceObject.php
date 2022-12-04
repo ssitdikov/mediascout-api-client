@@ -6,12 +6,9 @@ class CreateInvoiceObject
 {
     private string $id;
 
-    /**
-     * @return string
-     */
-    public function getId(): string
+    public function __construct(string $id)
     {
-        return $this->id;
+        $this->id = $id;
     }
 
     /**

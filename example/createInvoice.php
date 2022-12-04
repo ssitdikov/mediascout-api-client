@@ -28,7 +28,6 @@ $createInvoiceQuery->setStartDate(date('Y-m-d'));
 $initialContractData = new InvoiceInitialContractItem('CTe6YI6-ilHUG518BIgRJjVQ', 100, true);
 $stats = new InvoiceStatisticsByPlatformsItem('id', 'url', 777, 100, 100, 100, true);
 $stats->setPlatformName('platform name');
-$stats->setPlatformType('platform type');
 $stats->setPlatformOwnedByAgency(true);
 $stats->setStartDatePlan('2022-07-25');
 $stats->setStartDateFact('2022-07-26');

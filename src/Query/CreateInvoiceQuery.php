@@ -26,9 +26,9 @@ class CreateInvoiceQuery
 
     private string $finalContractId;
 
-    private array $initialContractsData;
+    private array $initialContractsData = [];
 
-    private array $statisticsByPlatforms;
+    private array $statisticsByPlatforms = [];
 
     public function __construct(
         string $number,
@@ -90,7 +90,7 @@ class CreateInvoiceQuery
 
     public function serialize()
     {
-        $result = [
+        return [
             'number' => $this->number,
             'date' => $this->date,
             'clientRole' => $this->clientRole,
@@ -103,8 +103,6 @@ class CreateInvoiceQuery
             'initialContractsData' => $this->initialContractsData,
             'statisticsByPlatforms' => $this->statisticsByPlatforms
         ];
-
-        return $result;
     }
 
     public function __serialize(): array

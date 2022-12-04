@@ -14,9 +14,9 @@ class InvoiceStatisticsByPlatformsItem
 
     private string $platformName;
 
-    private string $platformType;
+    private string $platformType = 'Site';
 
-    private bool $platformOwnedByAgency;
+    private bool $platformOwnedByAgency = false;
 
     private int $impsPlan;
 
@@ -54,6 +54,7 @@ class InvoiceStatisticsByPlatformsItem
         $this->amount = $amount;
         $this->price = $price;
         $this->vatIncluded = $vatIncluded;
+        $this->platformName = $this->platformUrl;
     }
 
     /**
@@ -119,7 +120,7 @@ class InvoiceStatisticsByPlatformsItem
             'erid' => $this->erid,
             'platformUrl' => $this->platformUrl,
             'platformName' => $this->platformName,
-//            'platformType' => $this->platformType,
+            'platformType' => $this->platformType,
             'platformOwnedByAgency' => $this->platformOwnedByAgency,
             'impsPlan' => $this->impsPlan,
             'impsFact' => $this->impsFact,
