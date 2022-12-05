@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Ssitdikov\MediascoutApiClient\Query;
 
+use DateTime;
+
 class CreateInitialContractQuery extends CreateFinalContractQuery
 {
     private string $finalContractId;
@@ -15,12 +17,12 @@ class CreateInitialContractQuery extends CreateFinalContractQuery
      * @param string $finalContractId
      * @param string $contractorId
      * @param string $number
-     * @param string $date
+     * @param DateTime $date
      * @param bool $vatIncluded
      * @param string $clientId
      * @param string $type
      */
-    public function __construct(string $number, string $date, bool $vatIncluded,
+    public function __construct(string $number, DateTime $date, bool $vatIncluded,
         string $clientId, string $type, string $finalContractId, string $contractorId)
     {
         $this->finalContractId = $finalContractId;

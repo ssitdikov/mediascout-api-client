@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Ssitdikov\MediascoutApiClient\Object;
 
+use DateTime;
 use Ssitdikov\MediascoutApiClient\Query\CreateFinalContractQuery;
 
 class FinalContract extends CreateFinalContractQuery
@@ -14,12 +15,12 @@ class FinalContract extends CreateFinalContractQuery
     /**
      * FinalContract constructor.
      * @param string $number
-     * @param string $date
+     * @param DateTime $date
      * @param bool $vatIncluded
      * @param string $clientId
      * @param string $type
      */
-    public function __construct(string $number, string $date, bool $vatIncluded, string $clientId, string $type)
+    public function __construct(string $number, DateTime $date, bool $vatIncluded, string $clientId, string $type)
     {
         parent::__construct($number, $date, $vatIncluded, $clientId, $type);
     }

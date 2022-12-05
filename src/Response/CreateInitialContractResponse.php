@@ -28,7 +28,7 @@ class CreateInitialContractResponse implements MediascoutApiResponseInterface
     {
         try {
             $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
-            $initialContract = new InitialContract($result['Number'], $result['Date'], $result['VatIncluded'],
+            $initialContract = new InitialContract($result['Number'], new \DateTime($result['Date']), $result['VatIncluded'],
                 $result['ClientId'], $result['Type'], $result['FinalContractId'] ?? '', $result['ContractorId']);
             $initialContract->setId($result['Id']);
             $initialContract->setStatus($result['Status']);

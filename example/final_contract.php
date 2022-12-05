@@ -26,13 +26,13 @@ $provider = new ApiProvider($endpoint, $login, $password);
 try {
     $createFinalContractQuery = (new CreateFinalContractQuery
     (
-        '31',
-        '2022-11-30',
+        '33',
+        new DateTime('2022-12-05'),
         true,
         'CLhY5jCy05xUakX7iyKGesew',
         ContractTypes::SERVICE_AGREEMENT
     ))
-        ->setAmount(17500)
+        ->setAmount(100000)
         ->setSubjectType(ContractInteractionTypes::DISTRIBUTION);
 
     /* @var CreateFinalContractResponse $createFinalContractResponse */

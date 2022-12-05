@@ -3,9 +3,12 @@
 use Ssitdikov\MediascoutApiClient\ApiProvider;
 use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
 use Ssitdikov\MediascoutApiClient\Query\CreateInitialContractQuery;
+use Ssitdikov\MediascoutApiClient\Query\GetInitialContractsQuery;
 use Ssitdikov\MediascoutApiClient\Request\CreateInitialContractRequest;
+use Ssitdikov\MediascoutApiClient\Request\GetInitialContractsRequest;
 use Ssitdikov\MediascoutApiClient\Response\CreateInitialContractResponse;
 use Ssitdikov\MediascoutApiClient\Types\ContractInteractionTypes;
+use Ssitdikov\MediascoutApiClient\Types\ContractStatusTypes;
 use Ssitdikov\MediascoutApiClient\Types\ContractTypes;
 use Symfony\Component\Dotenv\Dotenv;
 
@@ -23,12 +26,12 @@ $provider = new ApiProvider($endpoint, $login, $password);
 try {
     $createInitialContractQuery = (new CreateInitialContractQuery
     (
-        '27',
-        '2022-11-30',
+        '33',
+        new DateTime('2022-12-05'),
         true,
         'CLhY5jCy05xUakX7iyKGesew',
         ContractTypes::SERVICE_AGREEMENT,
-        'CTSmzOxt_FO0WP9TgTtiJ7zg',
+        'CTbRsfrrH5k02pYERqz7M0zw',
         'CLosG-tm5H_kiLEEZELl4rxw'
     ))
         ->setAmount(17500)
@@ -41,17 +44,17 @@ try {
         )
     );
 
-//    $getInitialContractsQuery = (new GetInitialContractsQuery())
-//        ->setInitialContractId('CTe6YI6-ilHUG518BIgRJjVQ')
-//        ->setFinalContractId('CTSmzOxt_FO0WP9TgTtiJ7zg')
-//        ->setClientId('CLhY5jCy05xUakX7iyKGesew')
-//        ->setStatus(ContractStatusTypes::ACTIVE);
-//
-//    $getFinalContractsResponse = $provider->execute(
-//        new GetInitialContractsRequest(
-//            $getInitialContractsQuery
-//        )
-//    );
+    $getInitialContractsQuery = (new GetInitialContractsQuery())
+        ->setInitialContractId('CTe6YI6-ilHUG518BIgRJjVQ')
+        ->setFinalContractId('CTbRsfrrH5k02pYERqz7M0zw')
+        ->setClientId('CLhY5jCy05xUakX7iyKGesew')
+        ->setStatus(ContractStatusTypes::ACTIVE);
+
+    $getFinalContractsResponse = $provider->execute(
+        new GetInitialContractsRequest(
+            $getInitialContractsQuery
+        )
+    );
 
 } catch (NotHostFoundException $exception) {
 }

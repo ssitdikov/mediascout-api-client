@@ -2,6 +2,7 @@
 
 namespace Ssitdikov\MediascoutApiClient\Response;
 
+use DateTime;
 use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
 use Ssitdikov\MediascoutApiClient\Object\FinalContract;
 
@@ -21,7 +22,7 @@ class GetFinalContractsResponse implements MediascoutApiResponseInterface
                 foreach ($result as $contract) {
                     $finalContract = new FinalContract(
                         $contract['Number'],
-                        $contract['Date'],
+                        new DateTime($contract['Date']),
                         $contract['VatIncluded'],
                         $contract['ClientId'],
                         $contract['Type']

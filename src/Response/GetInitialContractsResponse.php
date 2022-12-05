@@ -2,6 +2,7 @@
 
 namespace Ssitdikov\MediascoutApiClient\Response;
 
+use DateTime;
 use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
 use Ssitdikov\MediascoutApiClient\Object\InitialContract;
 
@@ -21,7 +22,7 @@ class GetInitialContractsResponse implements MediascoutApiResponseInterface
             if (count($result) > 0) {
                 foreach ($result as $contract) {
                     $initialContract = new InitialContract(
-                        $contract['Number'], $contract['Date'], $contract['VatIncluded'],
+                        $contract['Number'], new DateTime($contract['Date']), $contract['VatIncluded'],
                         $contract['ClientId'], $contract['Type'], $contract['FinalContractId'] ?? '', $contract['ContractorId']
                     );
                     $initialContract->setId($contract['Id']);
