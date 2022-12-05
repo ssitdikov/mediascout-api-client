@@ -7,7 +7,6 @@ use Ssitdikov\MediascoutApiClient\Exception\{HostNotFoundException};
 
 class CreateCreativeResponse implements MediascoutApiResponseInterface
 {
-    private static CreateCreativeObject $creativeObject;
 
     public static function init(string $response): self
     {

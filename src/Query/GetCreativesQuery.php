@@ -4,23 +4,16 @@ namespace Ssitdikov\MediascoutApiClient\Query;
 
 class GetCreativesQuery
 {
-    private string $creativeId;
+    private string $creativeId = '';
 
-    private string $erid;
+    private string $erid = '';
 
-    private string $initialContractId;
+    private string $initialContractId = '';
 
-    private string $finalContractId;
+    private string $finalContractId = '';
 
-    private string $status;
+    private string $status = '';
 
-    /**
-     * @return string
-     */
-    public function getCreativeId(): string
-    {
-        return $this->creativeId;
-    }
 
     /**
      * @param string $creativeId
@@ -28,14 +21,6 @@ class GetCreativesQuery
     public function setCreativeId(string $creativeId): void
     {
         $this->creativeId = $creativeId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getErid(): string
-    {
-        return $this->erid;
     }
 
     /**
@@ -47,14 +32,6 @@ class GetCreativesQuery
     }
 
     /**
-     * @return string
-     */
-    public function getInitialContractId(): string
-    {
-        return $this->initialContractId;
-    }
-
-    /**
      * @param string $initialContractId
      */
     public function setInitialContractId(string $initialContractId): void
@@ -63,27 +40,11 @@ class GetCreativesQuery
     }
 
     /**
-     * @return string
-     */
-    public function getFinalContractId(): string
-    {
-        return $this->finalContractId;
-    }
-
-    /**
      * @param string $finalContractId
      */
     public function setFinalContractId(string $finalContractId): void
     {
         $this->finalContractId = $finalContractId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatus(): string
-    {
-        return $this->status;
     }
 
     /**

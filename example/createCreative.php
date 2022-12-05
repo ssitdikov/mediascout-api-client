@@ -1,3 +1,4 @@
+
 <?php
 
 use Ssitdikov\MediascoutApiClient\ApiProvider;
@@ -35,11 +36,8 @@ $creativeQuery->setOkvedCodes(['Код ОКВЭД']);
 
 //$mediaData = new CreativeMediaDataItem('Название файла');
 $textData = new CreativeTextDataItem('Некий текст');
-$mediaData = new CreativeMediaDataItem('some file');
 
-$creativeQuery->setMediaData($mediaData);
 $creativeQuery->setTextData($textData);
-$creativeQuery->setMediaData($mediaData);
 try {
     $result = $provider->execute(new CreateCreativeRequest($creativeQuery));
 } catch (HostNotFoundException $exception) {

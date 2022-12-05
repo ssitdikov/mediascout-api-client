@@ -30,7 +30,6 @@ class CreateCreativeRequest implements MediascoutApiRequestInterface
 
     public function getParams(): array
     {
-        print_r($this->creativeQuery->serialize());
         return [
             'headers' => $this->getHeaders(),
             'json' => $this->creativeQuery->serialize(),

@@ -12,6 +12,7 @@ class GetCreativesResponse implements MediascoutApiResponseInterface
     {
         try {
             $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
+            $getCreatives = new GetCreativesObject($result['id'], $result['status']);
             return new self();
         } catch (\Exception $exception) {
             throw new HostNotFoundException();

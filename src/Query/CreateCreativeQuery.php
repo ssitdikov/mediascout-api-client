@@ -17,17 +17,17 @@ class CreateCreativeQuery
 
     private string $advertiserUrl;
 
-    private string $description;
+    private string $description = '';
 
-    private string $targetAudience;
+    private string $targetAudience = '';
 
     private bool $isSocial;
 
-    private array $okvedCodes;
+    private array $okvedCodes = [];
 
-    private array $mediaData;
+    private array $mediaData = [];
 
-    private array $textData;
+    private array $textData = [];
 
     public function __construct(
         string $initialContractId,
@@ -42,94 +42,6 @@ class CreateCreativeQuery
         $this->type = $type;
         $this->form = $form;
         $this->advertiserUrl = $advertiserUrl;
-    }
-
-    /**
-     * @return string
-     */
-    public function getInitialContractId(): string
-    {
-        return $this->initialContractId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFinalContractId(): string
-    {
-        return $this->finalContractId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getType(): string
-    {
-        return $this->type;
-    }
-
-    /**
-     * @return string
-     */
-    public function getForm(): string
-    {
-        return $this->form;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAdvertiserUrl(): string
-    {
-        return $this->advertiserUrl;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTargetAudience(): string
-    {
-        return $this->targetAudience;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isSocial(): bool
-    {
-        return $this->isSocial;
-    }
-
-    /**
-     * @return array
-     */
-    public function getOkvedCodes(): array
-    {
-        return $this->okvedCodes;
-    }
-
-    /**
-     * @return array
-     */
-    public function getMediaData(): array
-    {
-        return $this->mediaData;
-    }
-
-    /**
-     * @return array
-     */
-    public function getTextData(): array
-    {
-        return $this->textData;
     }
 
     /**
