@@ -2,7 +2,7 @@
 
 namespace Ssitdikov\MediascoutApiClient\Object;
 
-class SupplementInvoice
+class SupplementInvoiceObject
 {
     private string $id;
     private string $status;
