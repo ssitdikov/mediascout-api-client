@@ -14,7 +14,7 @@ class CreateFinalContractRequest implements MediascoutApiRequestInterface
      * CreateFinalContractRequest constructor.
      * @param CreateFinalContractQuery $createFinalContractQuery
      */
-    public function __construct(CreateFinalContractQuery $createFinalContractQuery)
+    public function     __construct(CreateFinalContractQuery $createFinalContractQuery)
     {
         $this->createFinalContractQuery = $createFinalContractQuery;
     }

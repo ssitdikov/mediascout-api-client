@@ -3,9 +3,12 @@
 use Ssitdikov\MediascoutApiClient\ApiProvider;
 use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
 use Ssitdikov\MediascoutApiClient\Query\CreateFinalContractQuery;
+use Ssitdikov\MediascoutApiClient\Query\GetFinalContractsQuery;
 use Ssitdikov\MediascoutApiClient\Request\CreateFinalContractRequest;
-use Ssitdikov\MediascoutApiClient\Response\CreateInitialContractResponse;
+use Ssitdikov\MediascoutApiClient\Request\GetFinalContractsRequest;
+use Ssitdikov\MediascoutApiClient\Response\CreateFinalContractResponse;
 use Ssitdikov\MediascoutApiClient\Types\ContractInteractionTypes;
+use Ssitdikov\MediascoutApiClient\Types\ContractStatusTypes;
 use Ssitdikov\MediascoutApiClient\Types\ContractTypes;
 use Symfony\Component\Dotenv\Dotenv;
 
@@ -21,8 +24,8 @@ $password = $_ENV['MEDIASCOUT_PASSWORD'];
 
 $provider = new ApiProvider($endpoint, $login, $password);
 try {
-    $query = (new CreateFinalContractQuery(
-        '25',
+    $createFinalContractQuery = (new CreateFinalContractQuery(
+        '31',
         '2022-11-30',
         true,
         'CLhY5jCy05xUakX7iyKGesew',
@@ -31,12 +34,23 @@ try {
         ->setAmount(17500)
         ->setSubjectType(ContractInteractionTypes::DISTRIBUTION);
 
-    /* @var CreateInitialContractResponse $result */
-    $result = $provider->execute(
+    /* @var CreateFinalContractResponse $createFinalContractResponse */
+    $createFinalContractResponse = $provider->execute(
         new CreateFinalContractRequest(
-            $query
+            $createFinalContractQuery
+        )
+    );
+
+    $getFinalContractsQuery = (new GetFinalContractsQuery())
+        ->setClientId('CLhY5jCy05xUakX7iyKGesew')
+        ->setStatus(ContractStatusTypes::ACTIVE);
+
+    $getFinalContractResponse = $provider->execute(
+        new GetFinalContractsRequest(
+            $getFinalContractsQuery
         )
     );
 } catch (NotHostFoundException $exception) {
 }
-print_r($result);
+print_r($createFinalContractResponse);
+print_r($getFinalContractResponse);
