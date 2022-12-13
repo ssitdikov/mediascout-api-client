@@ -11,6 +11,8 @@ class ApiProvider
     private Client $client;
     private string $endpointUrl;
 
+    private array $headers;
+
     /**
      * @param string $endpointUrl
      */
@@ -19,7 +21,7 @@ class ApiProvider
         $this->client = new Client([
             'auth' => [$login, $password]
         ]);
-        $this->endpointUrl = $endpointUrl;
+        $this->endpointUrl = rtrim($endpointUrl, '/');
     }
 
     public function addHeader(string $key, string $value): self
