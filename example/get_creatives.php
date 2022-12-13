@@ -2,8 +2,8 @@
 
 use Ssitdikov\MediascoutApiClient\ApiProvider;
 use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
-use Ssitdikov\MediascoutApiClient\Request\PingAuthRequest;
-use Ssitdikov\MediascoutApiClient\Response\PingResponse;
+use Ssitdikov\MediascoutApiClient\Request\GetCreativesRequest;
+use Ssitdikov\MediascoutApiClient\Query\GetCreativesQuery;
 use Symfony\Component\Dotenv\Dotenv;
 
 require __DIR__ . '/../vendor/autoload.php';
@@ -17,12 +17,15 @@ $login = $_ENV['MEDIASCOUT_LOGIN'];
 $password = $_ENV['MEDIASCOUT_PASSWORD'];
 
 $provider = new ApiProvider($endpoint, $login, $password);
-try {
-    /* @var PingResponse $result */
-    $result = $provider->execute(
-        new PingAuthRequest()
-    );
-} catch (HostNotFoundException $exception) {
-}
 
-print $result->getHost();
+$getCreativeQuery = new GetCreativesQuery();
+$getCreativeQuery->setCreativeId('CR5pxRa__aRkSgUqt0JeNkoA');
+$getCreativeQuery->setErid('Pb3XmBtzsyxfrdAuTGP6XfbzFdEMF1uW6xacMkr');
+$getCreativeQuery->setInitialContractId('AAADgMygKIOkyGuPzl83W1ow');
+$getCreativeQuery->setStatus('Active');
+
+try {
+    $result = $provider->execute(new GetCreativesRequest($getCreativeQuery));
+} catch (HostNotFoundException $exception) {
+
+}

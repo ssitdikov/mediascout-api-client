@@ -17,7 +17,7 @@ class GetClientsResponse implements MediascoutApiResponseInterface
     {
         try {
             $result = json_decode($response, true, 4, JSON_THROW_ON_ERROR);
-            $clients = new self();
+            $self = new self();
             if (count($result) > 0) {
                 foreach ($result as $item) {
                     $client = new Client(
@@ -29,10 +29,10 @@ class GetClientsResponse implements MediascoutApiResponseInterface
                     $client->setEpayNumber($item['EpayNumber'] ?? '');
                     $client->setRegNumber($item['RegNumber'] ?? '');
                     $client->setOksmNumber($item['OksmNumber'] ?? '');
-                    $clients->clients[] = $client;
+                    $self->clients[] = $client;
                 }
             }
-            return $clients;
+            return $self;
 
         } catch (\Exception $exception) {
             throw new \Exception(
@@ -40,5 +40,13 @@ class GetClientsResponse implements MediascoutApiResponseInterface
             );
         }
         throw new NotHostFoundException('Host not found');
+    }
+
+    /**
+     * @return array
+     */
+    public function getClients(): array
+    {
+        return $this->clients;
     }
 }

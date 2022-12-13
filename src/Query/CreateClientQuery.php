@@ -165,6 +165,7 @@ class CreateClientQuery
     }
 
     /**
+     * Код страны регистрации юр.лица в соответствии с ОКСМ
      * @param string $oksmNumber
      * @return CreateClientQuery
      */

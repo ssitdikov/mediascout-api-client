@@ -27,7 +27,13 @@ class CreateFinalContractResponse implements MediascoutApiResponseInterface
     {
         try {
             $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
-            $finalContract = new FinalContract($result['Number'], new DateTime($result['Date']), $result['VatIncluded'], $result['ClientId'], $result['Type']);
+            $finalContract = new FinalContract(
+                $result['Number'],
+                new DateTime($result['Date']),
+                $result['VatIncluded'],
+                $result['ClientId'],
+                $result['Type']
+            );
             $finalContract->setId($result['Id']);
             $finalContract->setStatus($result['Status']);
             $finalContract->setAmount($result['Amount']);
@@ -35,12 +41,19 @@ class CreateFinalContractResponse implements MediascoutApiResponseInterface
             $finalContract->setActionType($result['ActionType'] ?? '');
             $finalContract->setParentMainContractId($result['ParentMainContractId'] ?? '');
             return new self($finalContract);
-
         } catch (\Exception $exception) {
             throw new \Exception(
                 sprintf('Create new exception for error %s', $exception->getMessage())
             );
         }
         throw new NotHostFoundException('Host not found');
+    }
+
+    /**
+     * @return FinalContract
+     */
+    public function getContract(): FinalContract
+    {
+        return $this->contract;
     }
 }
