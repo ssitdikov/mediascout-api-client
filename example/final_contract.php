@@ -14,7 +14,7 @@ use Symfony\Component\Dotenv\Dotenv;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$path = __DIR__ . '/../.env';
+$path = __DIR__.'/../.env';
 $dotenv = new Dotenv();
 $dotenv->load($path);
 
@@ -25,13 +25,13 @@ $password = $_ENV['MEDIASCOUT_PASSWORD'];
 $provider = new ApiProvider($endpoint, $login, $password);
 try {
     $createFinalContractQuery = (new CreateFinalContractQuery(
-        '31',
-        '2022-11-30',
+        '33',
+        new DateTime('2022-12-05'),
         true,
         'CLhY5jCy05xUakX7iyKGesew',
         ContractTypes::SERVICE_AGREEMENT
     ))
-        ->setAmount(17500)
+        ->setAmount(100000)
         ->setSubjectType(ContractInteractionTypes::DISTRIBUTION);
 
     /* @var CreateFinalContractResponse $createFinalContractResponse */
@@ -52,5 +52,5 @@ try {
     );
 } catch (NotHostFoundException $exception) {
 }
-print_r($createFinalContractResponse);
-print_r($getFinalContractResponse);
+var_dump($createFinalContractResponse);
+var_dump($getFinalContractResponse);

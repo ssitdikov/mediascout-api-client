@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Ssitdikov\MediascoutApiClient\Query;
 
+use DateTime;
+
 class CreateFinalContractQuery
 {
     private string $number;
-    private string $date;
+    private DateTime $date;
     private float $amount = 0;
     private bool $vatIncluded;
     private string $clientId;
@@ -19,12 +21,12 @@ class CreateFinalContractQuery
     /**
      * CreateFinalContractQuery constructor.
      * @param string $number
-     * @param string $date
+     * @param DateTime $date
      * @param bool $vatIncluded
      * @param string $clientId
      * @param string $type
      */
-    public function __construct(string $number, string $date, bool $vatIncluded, string $clientId, string $type)
+    public function __construct(string $number, DateTime $date, bool $vatIncluded, string $clientId, string $type)
     {
         $this->number = $number;
         $this->date = $date;
@@ -51,19 +53,20 @@ class CreateFinalContractQuery
         return $this;
     }
 
+
     /**
-     * @return string
+     * @return DateTime
      */
-    public function getDate(): string
+    public function getDate(): DateTime
     {
         return $this->date;
     }
 
     /**
-     * @param string $date
+     * @param DateTime $date
      * @return CreateFinalContractQuery
      */
-    public function setDate(string $date): CreateFinalContractQuery
+    public function setDate(DateTime $date): CreateFinalContractQuery
     {
         $this->date = $date;
         return $this;
@@ -199,7 +202,7 @@ class CreateFinalContractQuery
         return
             [
                 'number' => $this->getNumber(),
-                'date' => $this->getDate(),
+                'date' => $this->getDate()->format("Y-m-d"),
                 'vatIncluded' => $this->isVatIncluded(),
                 'clientId' => $this->getClientId(),
                 'type' => $this->getType(),

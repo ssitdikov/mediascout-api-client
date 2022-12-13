@@ -2,6 +2,7 @@
 
 namespace Ssitdikov\MediascoutApiClient\Response;
 
+use DateTime;
 use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
 use Ssitdikov\MediascoutApiClient\Object\FinalContract;
 
@@ -26,7 +27,7 @@ class CreateFinalContractResponse implements MediascoutApiResponseInterface
     {
         try {
             $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
-            $finalContract = new FinalContract($result['Number'], $result['Date'], $result['VatIncluded'], $result['ClientId'], $result['Type']);
+            $finalContract = new FinalContract($result['Number'], new DateTime($result['Date']), $result['VatIncluded'], $result['ClientId'], $result['Type']);
             $finalContract->setId($result['Id']);
             $finalContract->setStatus($result['Status']);
             $finalContract->setAmount($result['Amount']);
