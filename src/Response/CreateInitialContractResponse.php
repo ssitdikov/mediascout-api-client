@@ -27,10 +27,9 @@ class CreateInitialContractResponse implements MediascoutApiResponseInterface
     }
 
 
-    public static function init(array $response):  MediascoutApiResponseInterface
+    public static function init(array $response): MediascoutApiResponseInterface
     {
         try {
-
             $initialContract = new InitialContract(
                 $response['Number'],
                 new DateTime($response['Date']),

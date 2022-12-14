@@ -12,7 +12,6 @@ class CreatePlatformResponse implements MediascoutApiResponseInterface
     public static function init(array $response): MediascoutApiResponseInterface
     {
         try {
-            
             $createPlatform = new CreatePlatformObject($response['id']);
             return new self($createPlatform);
         } catch (Exception $exception) {

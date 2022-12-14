@@ -69,9 +69,9 @@ class GetClientsQuery
         return
             array_filter(
                 [
-                    'id' => $this->getId(),
-                    'inn' => $this->getInn(),
-                    'status' => $this->getStatus()
+                    'Id' => $this->getId(),
+                    'Inn' => $this->getInn(),
+                    'Status' => $this->getStatus()
                 ]
             );
     }

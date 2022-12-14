@@ -26,7 +26,7 @@ class CreateFinalContractResponse implements MediascoutApiResponseInterface
     }
 
 
-    public static function init(array $response):  MediascoutApiResponseInterface
+    public static function init(array $response): MediascoutApiResponseInterface
     {
         try {
             $finalContract = new FinalContract(

@@ -15,7 +15,7 @@ class GetInitialContractsResponse implements MediascoutApiResponseInterface
      */
     private array $contracts;
 
-    public static function init(array $response):  MediascoutApiResponseInterface
+    public static function init(array $response): MediascoutApiResponseInterface
     {
         try {
             $contracts = new self();

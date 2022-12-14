@@ -8,7 +8,7 @@ class GetFinalContractsQuery
 {
     private string $finalContractId = '';
     private string $clientId = '';
-    private string $status = '';
+    private string $status = 'Active';
 
     /**
      * @return string
@@ -66,12 +66,13 @@ class GetFinalContractsQuery
 
     public function serialize(): array
     {
-        return
+        return array_filter(
             [
                 'finalContractId' => $this->getFinalContractId(),
                 'clientId' => $this->getClientId(),
                 'status' => $this->getStatus()
-            ];
+            ]
+        );
     }
 
     public function __serialize(): array

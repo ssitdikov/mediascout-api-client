@@ -179,14 +179,14 @@ class CreateClientQuery
     {
         return
             [
-                'createMode' => $this->getCreateMode(),
-                'legalForm' => $this->getLegalForm(),
-                'inn' => $this->getInn(),
-                'name' => $this->getName(),
-                'mobilePhone' => $this->getMobilePhone(),
-                'epayNumber' => $this->getEpayNumber(),
-                'regNumber' => $this->getRegNumber(),
-                'oksmNumber' => $this->getOksmNumber(),
+                'CreateMode' => $this->getCreateMode(),
+                'LegalForm' => $this->getLegalForm(),
+                'Inn' => $this->getInn(),
+                'Name' => $this->getName(),
+                'MobilePhone' => $this->getMobilePhone(),
+                'EpayNumber' => $this->getEpayNumber(),
+                'RegNumber' => $this->getRegNumber(),
+                'OksmNumber' => $this->getOksmNumber(),
             ];
     }
 

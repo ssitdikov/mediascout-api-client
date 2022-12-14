@@ -24,17 +24,21 @@ $password = $_ENV['MEDIASCOUT_PASSWORD'];
 $provider = new ApiProvider($endpoint, $login, $password);
 
 try {
-    $client_object = (new GetClientsQuery())
-        ->setInn('7736207543')
-        ->setStatus(ClientStatusTypes::ACTIVE);
+    $client_object = (new \Ssitdikov\MediascoutApiClient\Query\CreateClientQuery(
+        \Ssitdikov\MediascoutApiClient\Types\ClientCreationModesTypes::DIRECT_CLIENT,
+        \Ssitdikov\MediascoutApiClient\Types\ClientLegalFormsTypes::JURIDICAL_PERSON,
+        '7736207543',
+        'ООО Яндекс'
+    ));
 
     try {
         /* @var GetClientsResponse $get_clients_response */
         $get_clients_response = $provider->execute(
-            new GetClientsRequest(
+            new \Ssitdikov\MediascoutApiClient\Request\CreateClientRequest(
                 $client_object
             )
         );
+        var_dump($get_clients_response);
     } catch (TypeErrorException $exception) {
         print $exception->getMessage();
     } catch (Exception $exception) {

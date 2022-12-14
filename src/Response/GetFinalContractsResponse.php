@@ -6,7 +6,7 @@ namespace Ssitdikov\MediascoutApiClient\Response;
 
 use DateTime;
 use Exception;
-use Ssitdikov\MediascoutApiClient\Object\FinalContract;
+use Ssitdikov\MediascoutApiClient\Object\Contract\FinalContract;
 
 class GetFinalContractsResponse implements MediascoutApiResponseInterface
 {
@@ -15,25 +15,24 @@ class GetFinalContractsResponse implements MediascoutApiResponseInterface
      */
     private array $contracts;
 
-    public static function init(array $response):  MediascoutApiResponseInterface
+    public static function init(array $response): MediascoutApiResponseInterface
     {
         try {
             $contracts = new self();
             if (count($response) > 0) {
                 foreach ($response as $contract) {
-                    $finalContract = new FinalContract(
-                        $contract['Number'],
-                        new DateTime($contract['Date']),
-                        $contract['VatIncluded'],
-                        $contract['ClientId'],
-                        $contract['Type']
-                    );
-                    $finalContract->setId($contract['Id']);
-                    $finalContract->setStatus($contract['Status']);
-                    $finalContract->setAmount($contract['Amount']);
-                    $finalContract->setSubjectType($contract['SubjectType']);
-                    $finalContract->setActionType($contract['ActionType']);
-                    $finalContract->setParentMainContractId($contract['ParentMainContractId']);
+                    $finalContract = (new FinalContract())
+                        ->setNumber($contract['Number'])
+                        ->setDate(new DateTime($contract['Date']))
+                        ->setVatIncluded($contract['VatIncluded'])
+                        ->setClientId($contract['ClientId'])
+                        ->setType($contract['Type'])
+                        ->setId($contract['Id'])
+                        ->setStatus($contract['Status'])
+                        ->setAmount((int)($contract['Amount'] * 100))
+                        ->setSubjectType($contract['SubjectType'])
+                        ->setActionType($contract['ActionType'])
+                        ->setParentMainContractId($contract['ParentMainContractId']);
                     $contracts->contracts[] = $finalContract;
                 }
             }

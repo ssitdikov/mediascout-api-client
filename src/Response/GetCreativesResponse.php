@@ -17,7 +17,6 @@ class GetCreativesResponse implements MediascoutApiResponseInterface
     public static function init(array $response): MediascoutApiResponseInterface
     {
         try {
-            
             $self = new self();
             $self->creative = new GetCreativesObject($response['id'], $response['status']);
             return $self;
