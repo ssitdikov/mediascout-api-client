@@ -1,7 +1,7 @@
 <?php
 
 use Ssitdikov\MediascoutApiClient\ApiProvider;
-use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
+use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
 use Ssitdikov\MediascoutApiClient\Query\CreateClientQuery;
 use Ssitdikov\MediascoutApiClient\Query\GetClientsQuery;
 use Ssitdikov\MediascoutApiClient\Request\CreateClientRequest;
@@ -48,6 +48,6 @@ try {
             $getClientsQuery
         )
     );
-} catch (NotHostFoundException $exception) {
+} catch (HostNotFoundException $exception) {
 }
 print_r($getClientsResponse);

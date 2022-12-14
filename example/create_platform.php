@@ -1,7 +1,7 @@
 <?php
 
 use Ssitdikov\MediascoutApiClient\ApiProvider;
-use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
+use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
 use Ssitdikov\MediascoutApiClient\Query\CreatePlatformQuery;
 use Ssitdikov\MediascoutApiClient\Request\CreatePlatformRequest;
 use Symfony\Component\Dotenv\Dotenv;
@@ -24,6 +24,6 @@ $createPlatformQuery = new CreatePlatformQuery('Тестовая площадк�
 try {
     $result = $provider->execute(new CreatePlatformRequest($createPlatformQuery));
 
-} catch (NotHostFoundException $exception) {
+} catch (HostNotFoundException $exception) {
 
 }

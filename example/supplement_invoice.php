@@ -2,7 +2,7 @@
 
 
 use Ssitdikov\MediascoutApiClient\ApiProvider;
-use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
+use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
 use Ssitdikov\MediascoutApiClient\Query\SupplementInvoiceQuery;
 use Ssitdikov\MediascoutApiClient\Request\GetInvoicesRequest;
 use Ssitdikov\MediascoutApiClient\Request\SupplementInvoiceRequest;
@@ -25,6 +25,6 @@ $sup = new SupplementInvoiceQuery('123');
 try {
     $result = $provider->execute(new SupplementInvoiceRequest($sup));
 
-} catch (NotHostFoundException $exception) {
+} catch (HostNotFoundException $exception) {
 
 }

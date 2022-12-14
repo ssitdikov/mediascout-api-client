@@ -1,7 +1,7 @@
 <?php
 
 use Ssitdikov\MediascoutApiClient\ApiProvider;
-use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
+use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
 use Ssitdikov\MediascoutApiClient\Query\GetInvoiceSummaryQuery;
 use Ssitdikov\MediascoutApiClient\Request\GetInvoiceSummaryRequest;
 use Symfony\Component\Dotenv\Dotenv;
@@ -22,6 +22,6 @@ $getInvoiceSummaryQuery = new GetInvoiceSummaryQuery('1');
 
 try {
     $result = $provider->execute(new GetInvoiceSummaryRequest($getInvoiceSummaryQuery));
-} catch (NotHostFoundException $exception) {
+} catch (HostNotFoundException $exception) {
     return $exception;
 }

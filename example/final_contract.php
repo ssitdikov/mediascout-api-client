@@ -1,7 +1,7 @@
 <?php
 
 use Ssitdikov\MediascoutApiClient\ApiProvider;
-use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
+use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
 use Ssitdikov\MediascoutApiClient\Query\CreateFinalContractQuery;
 use Ssitdikov\MediascoutApiClient\Query\GetFinalContractsQuery;
 use Ssitdikov\MediascoutApiClient\Request\CreateFinalContractRequest;
@@ -50,7 +50,7 @@ try {
             $getFinalContractsQuery
         )
     );
-} catch (NotHostFoundException $exception) {
+} catch (HostNotFoundException $exception) {
 }
 var_dump($createFinalContractResponse);
 var_dump($getFinalContractResponse);

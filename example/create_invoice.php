@@ -1,7 +1,7 @@
 <?php
 
 use Ssitdikov\MediascoutApiClient\ApiProvider;
-use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
+use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
 use Ssitdikov\MediascoutApiClient\Query\CreateInvoiceQuery;
 use Ssitdikov\MediascoutApiClient\Query\queryChild\InvoiceInitialContractItem;
 use Ssitdikov\MediascoutApiClient\Query\queryChild\InvoiceStatisticsByPlatformsItem;
@@ -41,6 +41,6 @@ $createInvoiceQuery->setStatisticsByPlatforms($stats);
 try {
     $result = $provider->execute(new CreateInvoiceRequest($createInvoiceQuery));
 
-} catch (NotHostFoundException $exception) {
+} catch (HostNotFoundException $exception) {
 
 }
