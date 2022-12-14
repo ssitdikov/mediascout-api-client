@@ -11,7 +11,7 @@ class CreateInvoiceResponse implements MediascoutApiResponseInterface
         try {
             $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
             $createInvoice = new CreateInvoiceObject($result['id']);
-            return $result;
+            return new self($createInvoice);
         } catch (\Exception $exception) {
             throw $exception;
         }

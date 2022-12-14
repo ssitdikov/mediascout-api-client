@@ -1,14 +1,16 @@
 <?php
 
+
 use Ssitdikov\MediascoutApiClient\ApiProvider;
 use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
-use Ssitdikov\MediascoutApiClient\Query\GetInvoicesQuery;
+use Ssitdikov\MediascoutApiClient\Query\SupplementInvoiceQuery;
 use Ssitdikov\MediascoutApiClient\Request\GetInvoicesRequest;
+use Ssitdikov\MediascoutApiClient\Request\SupplementInvoiceRequest;
 use Symfony\Component\Dotenv\Dotenv;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$path = __DIR__.'/../.env';
+$path = __DIR__ . '/../.env';
 $dotenv = new Dotenv();
 $dotenv->load($path);
 
@@ -18,11 +20,11 @@ $password = $_ENV['MEDIASCOUT_PASSWORD'];
 
 $provider = new ApiProvider($endpoint, $login, $password);
 
-
-$getInvoices = new GetInvoicesQuery();
+$sup = new SupplementInvoiceQuery('123');
 
 try {
-    $result = $provider->execute(new GetInvoicesRequest($getInvoices));
+    $result = $provider->execute(new SupplementInvoiceRequest($sup));
+
 } catch (NotHostFoundException $exception) {
 
 }
