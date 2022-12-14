@@ -89,7 +89,7 @@ class CreateInvoiceQuery
         $this->statisticsByPlatforms[0] = $statisticsByPlatforms->serialize();
     }
 
-    public function serialize()
+    public function serialize(): array
     {
         return [
             'number' => $this->number,

@@ -36,7 +36,7 @@ class CreateCreativeQuery
         string $finalContractId,
         string $type,
         string $form,
-        string $advertiserUrl,
+        string $advertiserUrl
     ) {
         $this->initialContractId = $initialContractId;
         $this->finalContractId = $finalContractId;
@@ -78,7 +78,8 @@ class CreateCreativeQuery
     }
 
     /**
-     * @param array $creativeMediaDataItem
+     * @param CreativeMediaDataItem $mediaData
+     * @return void
      */
     public function setMediaData(CreativeMediaDataItem $mediaData): void
     {
@@ -86,7 +87,8 @@ class CreateCreativeQuery
     }
 
     /**
-     * @param array $creativeTextDataItem
+     * @param CreativeTextDataItem $textData
+     * @return void
      */
     public function setTextData(CreativeTextDataItem $textData): void
     {
@@ -94,7 +96,7 @@ class CreateCreativeQuery
     }
 
 
-    public function serialize()
+    public function serialize(): array
     {
         return [
             'initialContractId' => $this->initialContractId,

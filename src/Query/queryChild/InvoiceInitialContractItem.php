@@ -19,7 +19,7 @@ class InvoiceInitialContractItem
         $this->vatIncluded = $vatIncluded;
     }
 
-    public function serialize()
+    public function serialize(): array
     {
         return [
             'initialContractId' => $this->initialContractId,

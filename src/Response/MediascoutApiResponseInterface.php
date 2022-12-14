@@ -6,5 +6,5 @@ namespace Ssitdikov\MediascoutApiClient\Response;
 
 interface MediascoutApiResponseInterface
 {
-    public static function init(array $response): self;
+    public static function init(array $response): MediascoutApiResponseInterface;
 }

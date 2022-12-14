@@ -11,12 +11,11 @@ use Ssitdikov\MediascoutApiClient\Object\CreateCreativeObject;
 class CreateCreativeResponse implements MediascoutApiResponseInterface
 {
     private CreateCreativeObject $createCreativeObject;
-    public static function init(string $response): self
+    public static function init(array $response): MediascoutApiResponseInterface
     {
         try {
-            $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
             $self = new self();
-            $self->createCreativeObject = new CreateCreativeObject($result['Id']);
+            $self->createCreativeObject = new CreateCreativeObject($response['Id']);
             return $self;
         } catch (Exception $exception) {
             throw new HostNotFoundException();

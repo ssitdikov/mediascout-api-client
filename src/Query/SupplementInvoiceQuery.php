@@ -36,7 +36,7 @@ class SupplementInvoiceQuery
         $this->statisticsByPlatforms = $statisticsByPlatforms->serialize();
     }
 
-    public function serialize()
+    public function serialize(): array
     {
         return [
             'Id' => $this->id,

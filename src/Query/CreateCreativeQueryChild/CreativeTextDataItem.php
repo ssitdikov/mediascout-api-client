@@ -22,7 +22,7 @@ class CreativeTextDataItem
     }
 
 
-    public function serialize()
+    public function serialize(): array
     {
         return [
             'textData' => $this->textData

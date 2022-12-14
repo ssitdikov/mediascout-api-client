@@ -72,7 +72,7 @@ class CreateInitialContractQuery extends CreateFinalContractQuery
         return $this;
     }
 
-    public function serialize()
+    public function serialize(): array
     {
         $data = parent::serialize();
         $data['finalContractId'] = $this->getFinalContractId();

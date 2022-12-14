@@ -75,7 +75,7 @@ class CreativeMediaDataItem
         $this->description = $description;
     }
 
-    public function serialize()
+    public function serialize(): array
     {
         return [
             'fileName' => $this->fileName,

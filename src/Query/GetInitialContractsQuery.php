@@ -102,7 +102,7 @@ class GetInitialContractsQuery
         return $this;
     }
 
-    public function serialize()
+    public function serialize(): array
     {
         return
             [

@@ -9,11 +9,11 @@ use Ssitdikov\MediascoutApiClient\Object\CreatePlatformObject;
 
 class CreatePlatformResponse implements MediascoutApiResponseInterface
 {
-    public static function init(string $response): self
+    public static function init(array $response): MediascoutApiResponseInterface
     {
         try {
-            $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
-            $createPlatform = new CreatePlatformObject($result['id']);
+            
+            $createPlatform = new CreatePlatformObject($response['id']);
             return new self($createPlatform);
         } catch (Exception $exception) {
             throw $exception;

@@ -13,7 +13,7 @@ class GetInvoiceSummaryQuery
         $this->id = $id;
     }
 
-    public function serialize()
+    public function serialize(): array
     {
         return [
             'id' => $this->id

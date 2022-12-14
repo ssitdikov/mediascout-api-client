@@ -36,7 +36,7 @@ class GetInvoicesQuery
         $this->status = $status;
     }
 
-    public function serialize()
+    public function serialize(): array
     {
         return [
             'invoiceId' => $this->invoiceId,

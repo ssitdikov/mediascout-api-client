@@ -19,33 +19,33 @@ class CreateInitialContractResponse implements MediascoutApiResponseInterface
 
     /**
      * CreateInitialContractResponse constructor.
-     * @param FinalContract|InitialContract $contract
+     * @param InitialContract $contract
      */
-    public function __construct($contract)
+    public function __construct(InitialContract $contract)
     {
         $this->contract = $contract;
     }
 
 
-    public static function init(string $response): MediascoutApiResponseInterface
+    public static function init(array $response):  MediascoutApiResponseInterface
     {
         try {
-            $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
+
             $initialContract = new InitialContract(
-                $result['Number'],
-                new DateTime($result['Date']),
-                $result['VatIncluded'],
-                $result['ClientId'],
-                $result['Type'],
-                $result['FinalContractId'] ?? '',
-                $result['ContractorId']
+                $response['Number'],
+                new DateTime($response['Date']),
+                $response['VatIncluded'],
+                $response['ClientId'],
+                $response['Type'],
+                $response['FinalContractId'] ?? '',
+                $response['ContractorId']
             );
-            $initialContract->setId($result['Id']);
-            $initialContract->setStatus($result['Status']);
-            $initialContract->setAmount($result['Amount']);
-            $initialContract->setSubjectType($result['SubjectType'] ?? '');
-            $initialContract->setActionType($result['ActionType'] ?? '');
-            $initialContract->setParentMainContractId($result['ParentMainContractId'] ?? '');
+            $initialContract->setId($response['Id']);
+            $initialContract->setStatus($response['Status']);
+            $initialContract->setAmount($response['Amount']);
+            $initialContract->setSubjectType($response['SubjectType'] ?? '');
+            $initialContract->setActionType($response['ActionType'] ?? '');
+            $initialContract->setParentMainContractId($response['ParentMainContractId'] ?? '');
             return new self($initialContract);
         } catch (Exception $exception) {
             throw new Exception(

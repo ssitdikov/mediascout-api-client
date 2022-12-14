@@ -26,7 +26,7 @@ class CreatePlatformQuery
         $this->agencyId = $agencyId;
     }
 
-    public function serialize()
+    public function serialize(): array
     {
         return [
             'name' => $this->name,

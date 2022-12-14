@@ -28,11 +28,11 @@ class PingResponse implements MediascoutApiResponseInterface
     }
 
 
-    public static function init(string $response): MediascoutApiResponseInterface
+    public static function init(array $response):  MediascoutApiResponseInterface
     {
         try {
-            $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
-            foreach ($result as $row) {
+            
+            foreach ($response as $row) {
                 [$key, $value] = explode(':', $row);
                 if ($key === 'Host') {
                     return new self($value);

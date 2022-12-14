@@ -114,7 +114,7 @@ class InvoiceStatisticsByPlatformsItem
         $this->endDateFact = $endDateFact;
     }
 
-    public function serialize()
+    public function serialize(): array
     {
         return [
             'initialContractId' => $this->initialContractId,

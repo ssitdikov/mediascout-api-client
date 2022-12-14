@@ -15,13 +15,12 @@ class GetFinalContractsResponse implements MediascoutApiResponseInterface
      */
     private array $contracts;
 
-    public static function init(string $response): MediascoutApiResponseInterface
+    public static function init(array $response):  MediascoutApiResponseInterface
     {
         try {
-            $result = json_decode($response, true, 4, JSON_THROW_ON_ERROR);
             $contracts = new self();
-            if (count($result) > 0) {
-                foreach ($result as $contract) {
+            if (count($response) > 0) {
+                foreach ($response as $contract) {
                     $finalContract = new FinalContract(
                         $contract['Number'],
                         new DateTime($contract['Date']),

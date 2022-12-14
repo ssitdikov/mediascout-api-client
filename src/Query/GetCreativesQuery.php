@@ -57,7 +57,7 @@ class GetCreativesQuery
         $this->status = $status;
     }
 
-    public function serialize()
+    public function serialize(): array
     {
         return [
             'creativeId' => $this->creativeId,

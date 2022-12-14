@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Ssitdikov\MediascoutApiClient\Exception;
 
-class TypeErrorException extends \RuntimeException
+use RuntimeException;
+
+class TypeErrorException extends RuntimeException
 {
     public function __construct(string $message)
     {

@@ -26,23 +26,22 @@ class CreateFinalContractResponse implements MediascoutApiResponseInterface
     }
 
 
-    public static function init(string $response): MediascoutApiResponseInterface
+    public static function init(array $response):  MediascoutApiResponseInterface
     {
         try {
-            $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
             $finalContract = new FinalContract(
-                $result['Number'],
-                new DateTime($result['Date']),
-                $result['VatIncluded'],
-                $result['ClientId'],
-                $result['Type']
+                $response['Number'],
+                new DateTime($response['Date']),
+                $response['VatIncluded'],
+                $response['ClientId'],
+                $response['Type']
             );
-            $finalContract->setId($result['Id']);
-            $finalContract->setStatus($result['Status']);
-            $finalContract->setAmount($result['Amount']);
-            $finalContract->setSubjectType($result['SubjectType'] ?? '');
-            $finalContract->setActionType($result['ActionType'] ?? '');
-            $finalContract->setParentMainContractId($result['ParentMainContractId'] ?? '');
+            $finalContract->setId($response['Id']);
+            $finalContract->setStatus($response['Status']);
+            $finalContract->setAmount($response['Amount']);
+            $finalContract->setSubjectType($response['SubjectType'] ?? '');
+            $finalContract->setActionType($response['ActionType'] ?? '');
+            $finalContract->setParentMainContractId($response['ParentMainContractId'] ?? '');
             return new self($finalContract);
         } catch (Exception $exception) {
             throw new Exception(

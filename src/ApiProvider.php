@@ -35,6 +35,14 @@ class ApiProvider
         return $this;
     }
 
+    /**
+     * @return array
+     */
+    public function getHeaders(): array
+    {
+        return $this->headers;
+    }
+
     final public function execute(
         MediascoutApiRequestInterface $request
     ): MediascoutApiResponseInterface {

@@ -9,23 +9,22 @@ use Ssitdikov\MediascoutApiClient\Object\GetInvoicesObject;
 
 class GetInvoicesResponse implements MediascoutApiResponseInterface
 {
-    public static function init(string $response): self
+    public static function init(array $response): MediascoutApiResponseInterface
     {
         try {
-            $result = json_decode($response, true, 3, JSON_THROW_ON_ERROR);
-            $result = $result[0];
+            $response = $response[0];
             $getInvoices = new GetInvoicesObject(
-                $result['Id'],
-                $result['Status'],
-                $result['Number'],
-                $result['Date'],
-                $result['ClientRole'],
-                $result['ContractorRole'],
-                $result['Amount'],
-                $result['VatIncluded'],
-                $result['StartDate'],
-                $result['EndDate'],
-                $result['FinalContractId'],
+                $response['Id'],
+                $response['Status'],
+                $response['Number'],
+                $response['Date'],
+                $response['ClientRole'],
+                $response['ContractorRole'],
+                $response['Amount'],
+                $response['VatIncluded'],
+                $response['StartDate'],
+                $response['EndDate'],
+                $response['FinalContractId'],
             );
             return new self($getInvoices);
         } catch (Exception $exception) {

@@ -198,7 +198,7 @@ class CreateFinalContractQuery
         return $this;
     }
 
-    public function serialize()
+    public function serialize(): array
     {
         return
             [

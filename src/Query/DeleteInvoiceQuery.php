@@ -13,7 +13,7 @@ class DeleteInvoiceQuery
         $this->id = $id;
     }
 
-    public function serialzie()
+    public function serialzie(): array
     {
         return [
             'id' => $this->id
