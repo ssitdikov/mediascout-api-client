@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssitdikov\MediascoutApiClient\Response;
 
-use Ssitdikov\MediascoutApiClient\Object\CreateCreativeObject;
+use Exception;
 use Ssitdikov\MediascoutApiClient\Exception\{HostNotFoundException};
+use Ssitdikov\MediascoutApiClient\Object\CreateCreativeObject;
 
 class CreateCreativeResponse implements MediascoutApiResponseInterface
 {
@@ -15,7 +18,7 @@ class CreateCreativeResponse implements MediascoutApiResponseInterface
             $self = new self();
             $self->createCreativeObject = new CreateCreativeObject($result['Id']);
             return $self;
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             throw new HostNotFoundException();
         }
     }

@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssitdikov\MediascoutApiClient\Response;
 
 use DateTime;
-use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
+use Exception;
 use Ssitdikov\MediascoutApiClient\Object\FinalContract;
 
 class GetFinalContractsResponse implements MediascoutApiResponseInterface
@@ -30,18 +32,17 @@ class GetFinalContractsResponse implements MediascoutApiResponseInterface
                     $finalContract->setId($contract['Id']);
                     $finalContract->setStatus($contract['Status']);
                     $finalContract->setAmount($contract['Amount']);
-                    $finalContract->setSubjectType($contract['SubjectType'] ?? '');
-                    $finalContract->setActionType($contract['ActionType'] ?? '');
-                    $finalContract->setParentMainContractId($contract['ParentMainContractId'] ?? '');
+                    $finalContract->setSubjectType($contract['SubjectType']);
+                    $finalContract->setActionType($contract['ActionType']);
+                    $finalContract->setParentMainContractId($contract['ParentMainContractId']);
                     $contracts->contracts[] = $finalContract;
                 }
             }
             return $contracts;
-        } catch (\Exception $exception) {
-            throw new \Exception(
+        } catch (Exception $exception) {
+            throw new Exception(
                 sprintf('Create new exception for error %s', $exception->getMessage())
             );
         }
-        throw new NotHostFoundException('Host not found');
     }
 }

@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssitdikov\MediascoutApiClient\Response;
 
-use Ssitdikov\MediascoutApiClient\Object\ConfirmInvoiceObject;
+use Exception;
 
 class ConfirmInvoiceResponse implements MediascoutApiResponseInterface
 {
@@ -11,7 +13,7 @@ class ConfirmInvoiceResponse implements MediascoutApiResponseInterface
         try {
             json_decode($response, true, 2, JSON_THROW_ON_ERROR);
             return new self();
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
         }
     }
 }

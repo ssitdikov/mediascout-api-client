@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssitdikov\MediascoutApiClient\Request;
 
 use Ssitdikov\MediascoutApiClient\Query\GetFinalContractsQuery;

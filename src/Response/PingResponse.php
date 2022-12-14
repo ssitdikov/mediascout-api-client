@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssitdikov\MediascoutApiClient\Response;
 
-use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
+use Exception;
+use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
 
 class PingResponse implements MediascoutApiResponseInterface
 {
@@ -35,11 +38,11 @@ class PingResponse implements MediascoutApiResponseInterface
                     return new self($value);
                 }
             }
-        } catch (\Exception $exception) {
-            throw new \Exception(
+        } catch (Exception $exception) {
+            throw new Exception(
                 sprintf('Create new exception for error %s', $exception->getMessage())
             );
         }
-        throw new NotHostFoundException('Host not found');
+        throw new HostNotFoundException('Host not found');
     }
 }

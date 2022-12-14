@@ -1,8 +1,8 @@
 <?php
 
-namespace Ssitdikov\MediascoutApiClient\Object;
+declare(strict_types=1);
 
-use Ssitdikov\MediascoutApiClient\Query\CreateCreativeQuery;
+namespace Ssitdikov\MediascoutApiClient\Object;
 
 class CreateCreativeObject
 {

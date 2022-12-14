@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Ssitdikov\MediascoutApiClient\ApiProvider;
 use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
 use Ssitdikov\MediascoutApiClient\Query\CreateFinalContractQuery;

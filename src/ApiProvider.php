@@ -1,10 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssitdikov\MediascoutApiClient;
 
+use Exception;
 use GuzzleHttp\Client;
+use Ssitdikov\MediascoutApiClient\Exception\TypeErrorException;
 use Ssitdikov\MediascoutApiClient\Request\MediascoutApiRequestInterface;
 use Ssitdikov\MediascoutApiClient\Response\MediascoutApiResponseInterface;
+use TypeError;
 
 class ApiProvider
 {
@@ -38,9 +43,11 @@ class ApiProvider
                 $request->getHttpMethod(),
                 $this->endpointUrl . $request->getRoute(),
                 $request->getParams()
-            )->getBody();
+            )->getBody()->getContents();
             return ApiResponseSerializer::serialize($response, $request->getResultObject());
-        } catch (\Exception $exception) {
+        } catch (TypeError $typeError) {
+            throw new TypeErrorException($typeError->getMessage());
+        } catch (Exception $exception) {
             throw $exception;
         }
     }

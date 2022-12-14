@@ -1,8 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssitdikov\MediascoutApiClient\Response;
 
-use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
+use DateTime;
+use Exception;
+use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
 use Ssitdikov\MediascoutApiClient\Object\FinalContract;
 use Ssitdikov\MediascoutApiClient\Object\InitialContract;
 
@@ -29,7 +33,7 @@ class CreateInitialContractResponse implements MediascoutApiResponseInterface
             $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
             $initialContract = new InitialContract(
                 $result['Number'],
-                new \DateTime($result['Date']),
+                new DateTime($result['Date']),
                 $result['VatIncluded'],
                 $result['ClientId'],
                 $result['Type'],
@@ -43,11 +47,11 @@ class CreateInitialContractResponse implements MediascoutApiResponseInterface
             $initialContract->setActionType($result['ActionType'] ?? '');
             $initialContract->setParentMainContractId($result['ParentMainContractId'] ?? '');
             return new self($initialContract);
-        } catch (\Exception $exception) {
-            throw new \Exception(
+        } catch (Exception $exception) {
+            throw new Exception(
                 sprintf('Create new exception for error %s', $exception->getMessage())
             );
         }
-        throw new NotHostFoundException('Host not found');
+        throw new HostNotFoundException('Host not found');
     }
 }

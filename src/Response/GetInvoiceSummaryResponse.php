@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssitdikov\MediascoutApiClient\Response;
 
+use Exception;
 use Ssitdikov\MediascoutApiClient\Object\GetInvoiceSummaryObject;
 
 class GetInvoiceSummaryResponse implements MediascoutApiResponseInterface
@@ -23,7 +26,7 @@ class GetInvoiceSummaryResponse implements MediascoutApiResponseInterface
                 $result['ImpsAmount']
             );
             return new self($getInvoiceSummary);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             throw $exception;
         }
     }

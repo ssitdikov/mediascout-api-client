@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssitdikov\MediascoutApiClient\Response;
 
-use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
+use Exception;
 use Ssitdikov\MediascoutApiClient\Object\Client;
 
 class CreateClientResponse implements MediascoutApiResponseInterface
@@ -22,23 +24,29 @@ class CreateClientResponse implements MediascoutApiResponseInterface
     }
 
 
-    public static function init(string $response): MediascoutApiResponseInterface
+    public static function init(array $response): MediascoutApiResponseInterface
     {
         try {
-            $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
-            $client = new Client($result['CreateMode'] ?? '', $result['LegalForm'], $result['Inn'], $result['Name']);
-            $client->setId($result['Id']);
-            $client->setStatus($result['Status']);
-            $client->setMobilePhone($result['MobilePhone'] ?? '');
-            $client->setEpayNumber($result['EpayNumber'] ?? '');
-            $client->setRegNumber($result['RegNumber'] ?? '');
-            $client->setOksmNumber($result['OksmNumber'] ?? '');
+            $client = new Client($response['CreateMode'], $response['LegalForm'], $response['Inn'], $response['Name']);
+            $client->setId($response['Id']);
+            $client->setStatus($response['Status']);
+            $client->setMobilePhone($response['MobilePhone']);
+            $client->setEpayNumber($response['EpayNumber']);
+            $client->setRegNumber($response['RegNumber']);
+            $client->setOksmNumber($response['OksmNumber']);
             return new self($client);
-        } catch (\Exception $exception) {
-            throw new \Exception(
+        } catch (Exception $exception) {
+            throw new Exception(
                 sprintf('Create new exception for error %s', $exception->getMessage())
             );
         }
-        throw new NotHostFoundException('Host not found');
+    }
+
+    /**
+     * @return Client
+     */
+    public function getClient(): Client
+    {
+        return $this->client;
     }
 }

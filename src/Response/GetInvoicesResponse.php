@@ -1,7 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Ssitdikov\MediascoutApiClient\Response;
 
+use Exception;
 use Ssitdikov\MediascoutApiClient\Object\GetInvoicesObject;
 
 class GetInvoicesResponse implements MediascoutApiResponseInterface
@@ -25,7 +28,7 @@ class GetInvoicesResponse implements MediascoutApiResponseInterface
                 $result['FinalContractId'],
             );
             return new self($getInvoices);
-        } catch (\Exception $exception) {
+        } catch (Exception $exception) {
             throw $exception;
         }
     }
