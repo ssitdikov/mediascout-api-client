@@ -7,7 +7,6 @@ use Ssitdikov\MediascoutApiClient\Response\GetInitialContractsResponse;
 
 class GetInitialContractsRequest implements MediascoutApiRequestInterface
 {
-
     private GetInitialContractsQuery $getInitialContractsQuery;
 
     /**
@@ -47,5 +46,4 @@ class GetInitialContractsRequest implements MediascoutApiRequestInterface
     {
         return GetInitialContractsResponse::class;
     }
-
 }

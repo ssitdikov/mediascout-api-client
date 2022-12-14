@@ -46,5 +46,4 @@ class Client extends CreateClientQuery
         $this->status = $status;
         return $this;
     }
-
 }

@@ -22,9 +22,15 @@ class CreateInitialContractQuery extends CreateFinalContractQuery
      * @param string $clientId
      * @param string $type
      */
-    public function __construct(string $number, DateTime $date, bool $vatIncluded,
-        string $clientId, string $type, string $finalContractId, string $contractorId)
-    {
+    public function __construct(
+        string $number,
+        DateTime $date,
+        bool $vatIncluded,
+        string $clientId,
+        string $type,
+        string $finalContractId,
+        string $contractorId
+    ) {
         $this->finalContractId = $finalContractId;
         $this->contractorId = $contractorId;
         parent::__construct($number, $date, $vatIncluded, $clientId, $type);
@@ -66,12 +72,12 @@ class CreateInitialContractQuery extends CreateFinalContractQuery
         return $this;
     }
 
-    public function serialize() {
+    public function serialize()
+    {
         $data = parent::serialize();
         $data['finalContractId'] = $this->getFinalContractId();
         $data['contractorId'] = $this->getContractorId();
 
         return $data;
     }
-
 }

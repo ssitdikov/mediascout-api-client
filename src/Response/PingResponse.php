@@ -6,7 +6,6 @@ use Ssitdikov\MediascoutApiClient\Exception\NotHostFoundException;
 
 class PingResponse implements MediascoutApiResponseInterface
 {
-
     private string $host;
 
     /**

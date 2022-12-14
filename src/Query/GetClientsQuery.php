@@ -80,5 +80,4 @@ class GetClientsQuery
     {
         return $this->serialize();
     }
-
 }

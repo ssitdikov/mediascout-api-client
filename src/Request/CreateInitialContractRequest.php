@@ -8,7 +8,6 @@ use Ssitdikov\MediascoutApiClient\Response\CreateInitialContractResponse;
 
 class CreateInitialContractRequest implements MediascoutApiRequestInterface
 {
-
     private CreateInitialContractQuery $createInitialContractQuery;
 
     /**
@@ -47,5 +46,4 @@ class CreateInitialContractRequest implements MediascoutApiRequestInterface
     {
         return CreateInitialContractResponse::class;
     }
-
 }

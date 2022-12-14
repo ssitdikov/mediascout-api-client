@@ -41,5 +41,4 @@ class GetCreativesRequest implements MediascoutApiRequestInterface
     {
         return GetCreativesResponse::class;
     }
-
 }

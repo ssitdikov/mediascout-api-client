@@ -58,5 +58,3 @@ try {
 
 } catch (HostNotFoundException $exception) {
 }
-var_dump($createInitialContractResponse);
-var_dump($getFinalContractsResponse);

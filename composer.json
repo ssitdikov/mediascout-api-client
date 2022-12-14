@@ -24,6 +24,22 @@
   ],
   "require": {
     "guzzlehttp/guzzle": "^7.5",
-    "symfony/dotenv": "^6.1"
+    "symfony/dotenv": "^6.1",
+    "ext-json": "*"
+  },
+  "require-dev": {
+      "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+      "micheh/phpcs-gitlab": "^1.1",
+      "phpmd/phpmd": "^2.11",
+      "phpstan/phpstan": "^0.12.94",
+      "phpunit/phpunit": "^9.5",
+      "sirbrillig/phpcs-variable-analysis": "^2.11",
+      "slevomat/coding-standard": "^7.0",
+      "squizlabs/php_codesniffer": "^3.6"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }

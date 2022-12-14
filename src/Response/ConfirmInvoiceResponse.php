@@ -9,11 +9,9 @@ class ConfirmInvoiceResponse implements MediascoutApiResponseInterface
     public static function init(string $response): self
     {
         try {
-            $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
-            $confirmInvoice = new ConfirmInvoiceObject();
-            return new self($confirmInvoice);
+            json_decode($response, true, 2, JSON_THROW_ON_ERROR);
+            return new self();
         } catch (\Exception $exception) {
-
         }
     }
 }

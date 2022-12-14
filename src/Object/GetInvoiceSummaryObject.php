@@ -35,8 +35,7 @@ class GetInvoiceSummaryObject
         int $impsFactCount,
         int $impsPlanCount,
         int $impsAmount
-    )
-    {
+    ) {
         $this->id = $id;
         $this->status = $status;
         $this->amount = $amount;
@@ -128,5 +127,4 @@ class GetInvoiceSummaryObject
     {
         return $this->impsAmount;
     }
-
 }

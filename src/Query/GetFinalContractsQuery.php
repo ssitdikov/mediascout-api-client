@@ -64,19 +64,18 @@ class GetFinalContractsQuery
         return $this;
     }
 
-    public function serialize() {
+    public function serialize()
+    {
         return
             [
                 'finalContractId' => $this->getFinalContractId(),
                 'clientId' => $this->getClientId(),
                 'status' => $this->getStatus()
             ];
-
     }
 
     public function __serialize(): array
     {
         return $this->serialize();
     }
-
 }

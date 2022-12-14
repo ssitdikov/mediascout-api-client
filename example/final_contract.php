@@ -52,5 +52,3 @@ try {
     );
 } catch (HostNotFoundException $exception) {
 }
-var_dump($createFinalContractResponse);
-var_dump($getFinalContractResponse);

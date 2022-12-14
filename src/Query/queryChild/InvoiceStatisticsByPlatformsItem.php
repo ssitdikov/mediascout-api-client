@@ -45,8 +45,7 @@ class InvoiceStatisticsByPlatformsItem
         int $amount,
         int $price,
         bool $vatIncluded
-    )
-    {
+    ) {
         $this->erid = $erid;
         $this->platformUrl = $platformUrl;
         $this->impsPlan = $impsPlan;

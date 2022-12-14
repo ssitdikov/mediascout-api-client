@@ -2,5 +2,6 @@
 
 namespace Ssitdikov\MediascoutApiClient\Response;
 
-
-class PingAuthResponse extends PingResponse {}
+class PingAuthResponse extends PingResponse
+{
+}

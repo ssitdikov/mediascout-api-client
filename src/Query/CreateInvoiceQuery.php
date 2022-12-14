@@ -37,8 +37,7 @@ class CreateInvoiceQuery
         int $amount,
         bool $vatIncluded,
         string $finalContractId
-    )
-    {
+    ) {
         $this->number = $number;
         $this->clientRole = $clientRole;
         $this->contractorRole = $contractorRole;

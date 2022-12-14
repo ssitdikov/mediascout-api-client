@@ -8,7 +8,6 @@ use Ssitdikov\MediascoutApiClient\Object\InitialContract;
 
 class CreateInitialContractResponse implements MediascoutApiResponseInterface
 {
-
     /**
      * @var InitialContract|FinalContract
      */
@@ -28,8 +27,15 @@ class CreateInitialContractResponse implements MediascoutApiResponseInterface
     {
         try {
             $result = json_decode($response, true, 2, JSON_THROW_ON_ERROR);
-            $initialContract = new InitialContract($result['Number'], new \DateTime($result['Date']), $result['VatIncluded'],
-                $result['ClientId'], $result['Type'], $result['FinalContractId'] ?? '', $result['ContractorId']);
+            $initialContract = new InitialContract(
+                $result['Number'],
+                new \DateTime($result['Date']),
+                $result['VatIncluded'],
+                $result['ClientId'],
+                $result['Type'],
+                $result['FinalContractId'] ?? '',
+                $result['ContractorId']
+            );
             $initialContract->setId($result['Id']);
             $initialContract->setStatus($result['Status']);
             $initialContract->setAmount($result['Amount']);
@@ -37,7 +43,6 @@ class CreateInitialContractResponse implements MediascoutApiResponseInterface
             $initialContract->setActionType($result['ActionType'] ?? '');
             $initialContract->setParentMainContractId($result['ParentMainContractId'] ?? '');
             return new self($initialContract);
-
         } catch (\Exception $exception) {
             throw new \Exception(
                 sprintf('Create new exception for error %s', $exception->getMessage())

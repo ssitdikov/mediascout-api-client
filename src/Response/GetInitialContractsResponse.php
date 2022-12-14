@@ -22,8 +22,13 @@ class GetInitialContractsResponse implements MediascoutApiResponseInterface
             if (count($result) > 0) {
                 foreach ($result as $contract) {
                     $initialContract = new InitialContract(
-                        $contract['Number'], new DateTime($contract['Date']), $contract['VatIncluded'],
-                        $contract['ClientId'], $contract['Type'], $contract['FinalContractId'] ?? '', $contract['ContractorId']
+                        $contract['Number'],
+                        new DateTime($contract['Date']),
+                        $contract['VatIncluded'],
+                        $contract['ClientId'],
+                        $contract['Type'],
+                        $contract['FinalContractId'] ?? '',
+                        $contract['ContractorId']
                     );
                     $initialContract->setId($contract['Id']);
                     $initialContract->setStatus($contract['Status']);
@@ -34,7 +39,6 @@ class GetInitialContractsResponse implements MediascoutApiResponseInterface
                 }
             }
             return $contracts;
-
         } catch (\Exception $exception) {
             throw new \Exception(
                 sprintf('Create new exception for error %s', $exception->getMessage())

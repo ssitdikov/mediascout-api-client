@@ -18,5 +18,4 @@ class CreatePlatformObject
     {
         return $this->id;
     }
-
 }

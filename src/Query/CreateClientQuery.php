@@ -175,7 +175,8 @@ class CreateClientQuery
         return $this;
     }
 
-    public function serialize() {
+    public function serialize()
+    {
         return
             [
                 'createMode' => $this->getCreateMode(),

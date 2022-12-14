@@ -39,8 +39,7 @@ class GetInvoicesObject
         string $startDate,
         string $endDate,
         string $finalContractId
-    )
-    {
+    ) {
         $this->id = $id;
         $this->status = $status;
         $this->number = $number;
@@ -141,6 +140,4 @@ class GetInvoicesObject
     {
         return $this->finalContractId;
     }
-
-
 }

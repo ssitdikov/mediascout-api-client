@@ -7,7 +7,6 @@ use Ssitdikov\MediascoutApiClient\Object\Client;
 
 class CreateClientResponse implements MediascoutApiResponseInterface
 {
-
     /**
      * @var Client
      */
@@ -35,7 +34,6 @@ class CreateClientResponse implements MediascoutApiResponseInterface
             $client->setRegNumber($result['RegNumber'] ?? '');
             $client->setOksmNumber($result['OksmNumber'] ?? '');
             return new self($client);
-
         } catch (\Exception $exception) {
             throw new \Exception(
                 sprintf('Create new exception for error %s', $exception->getMessage())

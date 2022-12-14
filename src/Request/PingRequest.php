@@ -32,5 +32,4 @@ class PingRequest implements MediascoutApiRequestInterface
     {
         return PingResponse::class;
     }
-
 }

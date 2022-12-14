@@ -7,14 +7,13 @@ use Ssitdikov\MediascoutApiClient\Response\CreateFinalContractResponse;
 
 class CreateFinalContractRequest implements MediascoutApiRequestInterface
 {
-
     private CreateFinalContractQuery $createFinalContractQuery;
 
     /**
      * CreateFinalContractRequest constructor.
      * @param CreateFinalContractQuery $createFinalContractQuery
      */
-    public function     __construct(CreateFinalContractQuery $createFinalContractQuery)
+    public function __construct(CreateFinalContractQuery $createFinalContractQuery)
     {
         $this->createFinalContractQuery = $createFinalContractQuery;
     }
@@ -46,5 +45,4 @@ class CreateFinalContractRequest implements MediascoutApiRequestInterface
     {
         return CreateFinalContractResponse::class;
     }
-
 }

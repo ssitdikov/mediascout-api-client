@@ -22,9 +22,15 @@ class InitialContract extends FinalContract
      * @param string $clientId
      * @param string $type
      */
-    public function __construct(string $number, DateTime $date, bool $vatIncluded,
-        string $clientId, string $type, string $finalContractId, string $contractorId)
-    {
+    public function __construct(
+        string $number,
+        DateTime $date,
+        bool $vatIncluded,
+        string $clientId,
+        string $type,
+        string $finalContractId,
+        string $contractorId
+    ) {
         $this->finalContractId = $finalContractId;
         $this->contractorId = $contractorId;
         parent::__construct($number, $date, $vatIncluded, $clientId, $type);
@@ -65,5 +71,4 @@ class InitialContract extends FinalContract
         $this->contractorId = $contractorId;
         return $this;
     }
-
 }

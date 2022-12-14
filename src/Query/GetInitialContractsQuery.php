@@ -102,7 +102,8 @@ class GetInitialContractsQuery
         return $this;
     }
 
-    public function serialize() {
+    public function serialize()
+    {
         return
             [
                 'initialContractId' => $this->getInitialContractId(),
@@ -111,12 +112,10 @@ class GetInitialContractsQuery
                 'clientId' => $this->getClientId(),
                 'status' => $this->getStatus()
             ];
-
     }
 
     public function __serialize(): array
     {
         return $this->serialize();
     }
-
 }

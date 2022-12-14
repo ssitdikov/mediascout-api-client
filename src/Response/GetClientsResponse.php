@@ -7,7 +7,6 @@ use Ssitdikov\MediascoutApiClient\Object\Client;
 
 class GetClientsResponse implements MediascoutApiResponseInterface
 {
-
     /**
      * @var Client[] $clients
      */
@@ -21,7 +20,10 @@ class GetClientsResponse implements MediascoutApiResponseInterface
             if (count($result) > 0) {
                 foreach ($result as $item) {
                     $client = new Client(
-                        $item['CreateMode'] ?? '', $item['LegalForm'], $item['Inn'], $item['Name']
+                        $item['CreateMode'] ?? '',
+                        $item['LegalForm'],
+                        $item['Inn'],
+                        $item['Name']
                     );
                     $client->setId($item['Id']);
                     $client->setStatus($item['Status']);
@@ -33,7 +35,6 @@ class GetClientsResponse implements MediascoutApiResponseInterface
                 }
             }
             return $self;
-
         } catch (\Exception $exception) {
             throw new \Exception(
                 sprintf('Create new exception for error %s', $exception->getMessage())

@@ -50,4 +50,3 @@ try {
     );
 } catch (HostNotFoundException $exception) {
 }
-print_r($getClientsResponse);

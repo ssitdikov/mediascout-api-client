@@ -35,8 +35,7 @@ class CreateCreativeQuery
         string $type,
         string $form,
         string $advertiserUrl,
-    )
-    {
+    ) {
         $this->initialContractId = $initialContractId;
         $this->finalContractId = $finalContractId;
         $this->type = $type;

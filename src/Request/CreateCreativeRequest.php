@@ -1,6 +1,7 @@
 <?php
 
 namespace Ssitdikov\MediascoutApiClient\Request;
+
 use Ssitdikov\MediascoutApiClient\Query\CreateCreativeQuery;
 use Ssitdikov\MediascoutApiClient\Response\CreateCreativeResponse;
 

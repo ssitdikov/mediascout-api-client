@@ -7,21 +7,20 @@ class CreatePlatformQuery
     private string $name;
     private string $type;
     private string $url;
-    private bool $is_owner;
+    private bool $isOwner;
     private string $agencyId;
 
     public function __construct(
         string $name,
         string $type,
         string $url,
-        bool $is_owner,
+        bool $isOwner,
         string $agencyId
-    )
-    {
+    ) {
         $this->name = $name;
         $this->type = $type;
         $this->url = $url;
-        $this->is_owner = $is_owner;
+        $this->isOwner = $isOwner;
         $this->agencyId = $agencyId;
     }
 
@@ -31,7 +30,7 @@ class CreatePlatformQuery
             'name' => $this->name,
             'type' => $this->type,
             'url' => $this->url,
-            'is_owner' => $this->is_owner,
+            'is_owner' => $this->isOwner,
             'agencyId' => $this->agencyId
         ];
     }

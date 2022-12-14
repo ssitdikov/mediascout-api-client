@@ -7,7 +7,6 @@ use Ssitdikov\MediascoutApiClient\Response\GetClientsResponse;
 
 class GetClientsRequest implements MediascoutApiRequestInterface
 {
-
     private GetClientsQuery $getClientsQuery;
 
     /**
@@ -47,5 +46,4 @@ class GetClientsRequest implements MediascoutApiRequestInterface
     {
         return GetClientsResponse::class;
     }
-
 }

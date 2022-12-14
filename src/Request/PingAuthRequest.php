@@ -7,7 +7,6 @@ use Ssitdikov\MediascoutApiClient\Response\PingAuthResponse;
 
 class PingAuthRequest implements MediascoutApiRequestInterface
 {
-
     public function getRoute(): string
     {
         return '/PingAuth';
@@ -34,5 +33,4 @@ class PingAuthRequest implements MediascoutApiRequestInterface
     {
         return PingAuthResponse::class;
     }
-
 }

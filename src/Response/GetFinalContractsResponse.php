@@ -37,7 +37,6 @@ class GetFinalContractsResponse implements MediascoutApiResponseInterface
                 }
             }
             return $contracts;
-
         } catch (\Exception $exception) {
             throw new \Exception(
                 sprintf('Create new exception for error %s', $exception->getMessage())

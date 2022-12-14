@@ -7,7 +7,6 @@ use Ssitdikov\MediascoutApiClient\Response\GetFinalContractsResponse;
 
 class GetFinalContractsRequest implements MediascoutApiRequestInterface
 {
-
     private GetFinalContractsQuery $getFinalContractsQuery;
 
     /**
@@ -47,5 +46,4 @@ class GetFinalContractsRequest implements MediascoutApiRequestInterface
     {
         return GetFinalContractsResponse::class;
     }
-
 }

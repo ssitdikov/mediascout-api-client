@@ -198,7 +198,8 @@ class CreateFinalContractQuery
         return $this;
     }
 
-    public function serialize() {
+    public function serialize()
+    {
         return
             [
                 'number' => $this->getNumber(),
@@ -211,12 +212,10 @@ class CreateFinalContractQuery
                 'actionType' => $this->getActionType(),
                 'parentMainContractId' => $this->getParentMainContractId()
             ];
-
     }
 
     public function __serialize(): array
     {
         return $this->serialize();
     }
-
 }

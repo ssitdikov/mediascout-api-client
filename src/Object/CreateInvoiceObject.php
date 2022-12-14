@@ -18,6 +18,4 @@ class CreateInvoiceObject
     {
         $this->id = $id;
     }
-
-
 }

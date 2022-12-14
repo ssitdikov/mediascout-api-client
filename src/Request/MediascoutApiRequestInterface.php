@@ -4,7 +4,6 @@ namespace Ssitdikov\MediascoutApiClient\Request;
 
 interface MediascoutApiRequestInterface
 {
-
     public const HTTP_METHOD_POST = 'POST';
     public const HTTP_METHOD_GET = 'GET';
 
