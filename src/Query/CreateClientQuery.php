@@ -175,9 +175,12 @@ class CreateClientQuery
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function serialize(): array
     {
-        return
+        return array_filter(
             [
                 'CreateMode' => $this->getCreateMode(),
                 'LegalForm' => $this->getLegalForm(),
@@ -187,7 +190,8 @@ class CreateClientQuery
                 'EpayNumber' => $this->getEpayNumber(),
                 'RegNumber' => $this->getRegNumber(),
                 'OksmNumber' => $this->getOksmNumber(),
-            ];
+            ]
+        );
     }
 
     public function __serialize(): array
