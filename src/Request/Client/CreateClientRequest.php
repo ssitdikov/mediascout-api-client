@@ -2,24 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Ssitdikov\MediascoutApiClient\Request;
+namespace Ssitdikov\MediascoutApiClient\Request\Client;
 
-use Ssitdikov\MediascoutApiClient\Query\CreateClientQuery;
-use Ssitdikov\MediascoutApiClient\Response\CreateClientResponse;
+use Ssitdikov\MediascoutApiClient\Query\Client\ClientQuery;
+use Ssitdikov\MediascoutApiClient\Request\MediascoutApiRequestInterface;
+use Ssitdikov\MediascoutApiClient\Response\Client\CreateClientResponse;
 
 class CreateClientRequest implements MediascoutApiRequestInterface
 {
-    private CreateClientQuery $createClientQuery;
+    private ClientQuery $createClientQuery;
 
     /**
-     * CreateClientRequest constructor.
-     * @param CreateClientQuery $createClientQuery
+     * @param ClientQuery $createClientQuery
      */
-    public function __construct(CreateClientQuery $createClientQuery)
+    public function __construct(ClientQuery $createClientQuery)
     {
         $this->createClientQuery = $createClientQuery;
     }
-
 
     public function getRoute(): string
     {
@@ -40,7 +39,7 @@ class CreateClientRequest implements MediascoutApiRequestInterface
     {
         return [
             'headers' => $this->getHeaders(),
-            'json' => $this->createClientQuery->serialize()
+            'json' => $this->createClientQuery
         ];
     }
 
