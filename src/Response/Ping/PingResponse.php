@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Ssitdikov\MediascoutApiClient\Response;
+namespace Ssitdikov\MediascoutApiClient\Response\Ping;
 
 use Exception;
 use Ssitdikov\MediascoutApiClient\Exception\HostNotFoundException;
+use Ssitdikov\MediascoutApiClient\Response\MediascoutApiResponseInterface;
 
-class PingResponse implements MediascoutApiResponseInterface
+class
+PingResponse implements MediascoutApiResponseInterface
 {
     private string $host;
 

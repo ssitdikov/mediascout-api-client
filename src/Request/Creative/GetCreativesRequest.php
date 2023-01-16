@@ -1,19 +1,21 @@
 <?php
 
-declare(strict_types=1);
+namespace Ssitdikov\MediascoutApiClient\Request\Creative;
 
-namespace Ssitdikov\MediascoutApiClient\Request;
-
-use Ssitdikov\MediascoutApiClient\Query\GetCreativesQuery;
-use Ssitdikov\MediascoutApiClient\Response\GetCreativesResponse;
+use Ssitdikov\MediascoutApiClient\Object\Creative\Creative;
+use Ssitdikov\MediascoutApiClient\Request\MediascoutApiRequestInterface;
+use Ssitdikov\MediascoutApiClient\Response\Creative\GetCreativesResponse;
 
 class GetCreativesRequest implements MediascoutApiRequestInterface
 {
-    private GetCreativesQuery $creativesQuery;
+    private Creative $creative;
 
-    public function __construct(GetCreativesQuery $creativesQuery)
+    /**
+     * @param Creative $creative
+     */
+    public function __construct(Creative $creative)
     {
-        $this->creativesQuery = $creativesQuery;
+        $this->creative = $creative;
     }
 
     public function getRoute(): string
@@ -35,7 +37,7 @@ class GetCreativesRequest implements MediascoutApiRequestInterface
     {
         return [
             'headers' => $this->getHeaders(),
-            'json' => $this->creativesQuery,
+            'json' => $this->creative,
         ];
     }
 

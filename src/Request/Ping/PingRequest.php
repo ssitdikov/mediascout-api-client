@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Ssitdikov\MediascoutApiClient\Request;
+namespace Ssitdikov\MediascoutApiClient\Request\Ping;
 
-use Ssitdikov\MediascoutApiClient\Query\PingAuthQuery;
-use Ssitdikov\MediascoutApiClient\Response\PingAuthResponse;
+use Ssitdikov\MediascoutApiClient\Request\MediascoutApiRequestInterface;
+use Ssitdikov\MediascoutApiClient\Response\Ping\PingResponse;
 
-class PingAuthRequest implements MediascoutApiRequestInterface
+class PingRequest implements MediascoutApiRequestInterface
 {
     public function getRoute(): string
     {
-        return '/PingAuth';
+        return '/Ping';
     }
 
     public function getHttpMethod(): string
@@ -33,6 +33,6 @@ class PingAuthRequest implements MediascoutApiRequestInterface
 
     public function getResultObject(): string
     {
-        return PingAuthResponse::class;
+        return PingResponse::class;
     }
 }
