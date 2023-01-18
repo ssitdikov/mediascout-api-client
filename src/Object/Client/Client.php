@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ssitdikov\MediascoutApiClient\Object\Client;
 
-class Client
+class Client implements \JsonSerializable
 {
     /**
      * API значение
@@ -192,5 +192,12 @@ class Client
     {
         $this->status = $status;
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId()
+        ];
     }
 }

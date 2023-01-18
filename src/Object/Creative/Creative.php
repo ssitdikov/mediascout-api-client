@@ -2,7 +2,7 @@
 
 namespace Ssitdikov\MediascoutApiClient\Object\Creative;
 
-class Creative
+class Creative implements \JsonSerializable
 {
     private string $id = '';
     private string $initialContractId = '';
@@ -252,5 +252,12 @@ class Creative
         ];
 
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId()
+        ];
     }
 }

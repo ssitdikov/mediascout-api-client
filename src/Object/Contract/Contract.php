@@ -7,7 +7,7 @@ namespace Ssitdikov\MediascoutApiClient\Object\Contract;
 use Ssitdikov\MediascoutApiClient\Types\ContractSubjectTypes;
 use Ssitdikov\MediascoutApiClient\Types\ContractTypes;
 
-class Contract
+class Contract implements \JsonSerializable
 {
     private string $id = '';
 
@@ -243,5 +243,12 @@ class Contract
     {
         $this->contractorId = $contractorId;
         return $this;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId()
+        ];
     }
 }
