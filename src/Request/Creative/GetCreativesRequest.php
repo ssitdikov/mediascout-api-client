@@ -2,18 +2,18 @@
 
 namespace Ssitdikov\MediascoutApiClient\Request\Creative;
 
-use Ssitdikov\MediascoutApiClient\Object\Creative\Creative;
+use Ssitdikov\MediascoutApiClient\Query\Creative\GetCreativeQuery;
 use Ssitdikov\MediascoutApiClient\Request\MediascoutApiRequestInterface;
 use Ssitdikov\MediascoutApiClient\Response\Creative\GetCreativesResponse;
 
 class GetCreativesRequest implements MediascoutApiRequestInterface
 {
-    private Creative $creative;
+    private GetCreativeQuery $creative;
 
     /**
-     * @param Creative $creative
+     * @param GetCreativeQuery $creative
      */
-    public function __construct(Creative $creative)
+    public function __construct(GetCreativeQuery $creative)
     {
         $this->creative = $creative;
     }
@@ -37,7 +37,7 @@ class GetCreativesRequest implements MediascoutApiRequestInterface
     {
         return [
             'headers' => $this->getHeaders(),
-            'json' => $this->creative,
+            'json' => $this->creative->jsonSerialize(),
         ];
     }
 
