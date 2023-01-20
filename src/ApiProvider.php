@@ -7,10 +7,27 @@ namespace Ssitdikov\MediascoutApiClient;
 use Exception;
 use GuzzleHttp\Client;
 use Ssitdikov\MediascoutApiClient\Exception\TypeErrorException;
+use Ssitdikov\MediascoutApiClient\Request\Client\CreateClientRequest;
+use Ssitdikov\MediascoutApiClient\Request\Client\GetClientsRequest;
+use Ssitdikov\MediascoutApiClient\Request\Contract\CreateContractRequest;
+use Ssitdikov\MediascoutApiClient\Request\Creative\CreateCreativeRequest;
+use Ssitdikov\MediascoutApiClient\Request\Creative\GetCreativesRequest;
 use Ssitdikov\MediascoutApiClient\Request\MediascoutApiRequestInterface;
+use Ssitdikov\MediascoutApiClient\Response\Client\CreateClientResponse;
+use Ssitdikov\MediascoutApiClient\Response\Client\GetClientsResponse;
+use Ssitdikov\MediascoutApiClient\Response\Contract\CreateContractResponse;
+use Ssitdikov\MediascoutApiClient\Response\Creative\CreateCreativeResponse;
+use Ssitdikov\MediascoutApiClient\Response\Creative\GetCreativesResponse;
 use Ssitdikov\MediascoutApiClient\Response\MediascoutApiResponseInterface;
 use TypeError;
 
+/**
+ * @method GetClientsResponse getClients(GetClientsRequest $request)
+ * @method CreateClientResponse createClient(CreateClientRequest $request)
+ * @method CreateContractResponse createContract(CreateContractRequest $request)
+ * @method CreateCreativeResponse createCreative(CreateCreativeRequest $request)
+ * @method GetCreativesResponse getCreatives(GetCreativesRequest $request)
+ */
 class ApiProvider
 {
     private Client $client;
@@ -43,6 +60,7 @@ class ApiProvider
         return $this->headers;
     }
 
+
     final public function execute(
         MediascoutApiRequestInterface $request
     ): MediascoutApiResponseInterface {
@@ -53,10 +71,16 @@ class ApiProvider
                 $request->getParams()
             )->getBody()->getContents();
             return ApiResponseSerializer::serialize($response, $request->getResultObject());
-        } catch (TypeError $typeError) {
-            throw new TypeErrorException($typeError->getMessage());
-        } catch (Exception $exception) {
-            throw $exception;
+        } catch (TypeError $type_error) {
+            throw new TypeErrorException($type_error->getMessage());
         }
+    }
+
+    public function __call(string $name, array $arguments)
+    {
+        if ($arguments[0] instanceof MediascoutApiRequestInterface) {
+            return $this->execute($arguments[0]);
+        }
+        throw new \Exception('Method not exists');
     }
 }
