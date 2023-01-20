@@ -17,6 +17,8 @@ class Creative implements \JsonSerializable
     private array $mediaData = [];
     private array $textData = [];
 
+    private string $erid = '';
+
     /**
      * @return string
      */
@@ -254,7 +256,25 @@ class Creative implements \JsonSerializable
         return $this;
     }
 
-    public function jsonSerialize()
+    /**
+     * @return string
+     */
+    public function getErid(): string
+    {
+        return $this->erid;
+    }
+
+    /**
+     * @param string $erid
+     * @return Creative
+     */
+    public function setErid(string $erid): Creative
+    {
+        $this->erid = $erid;
+        return $this;
+    }
+
+    public function jsonSerialize(): array
     {
         return [
             'id' => $this->getId()

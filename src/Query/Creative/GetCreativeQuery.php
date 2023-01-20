@@ -28,7 +28,8 @@ class GetCreativeQuery implements \JsonSerializable
     {
         return array_filter(
             [
-                'CreativeId' => $this->creative->getId()
+                'CreativeId' => $this->creative->getId(),
+                'Erid' => $this->creative->getErid()
             ]
         );
     }
