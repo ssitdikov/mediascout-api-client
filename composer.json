@@ -32,7 +32,7 @@
       "micheh/phpcs-gitlab": "^1.1",
       "phpmd/phpmd": "^2.11",
       "phpstan/phpstan": "^0.12.94",
-      "phpunit/phpunit": "^9.5",
+      "phpunit/phpunit": "^10.0",
       "sirbrillig/phpcs-variable-analysis": "^2.11",
       "slevomat/coding-standard": "^7.0",
       "squizlabs/php_codesniffer": "^3.6"
