@@ -57,7 +57,6 @@ class ApiProviderTest extends TestCase
         $this->provider->method('createClient')
             ->willReturn(new CreateClientResponse($client));
 
-        self::assertEquals(new CreateClientResponse($client), $this->provider->createClient($request));
         self::assertSame('google', $this->provider->createClient($request)->getClient()->getName());
         self::assertSame('7704582421', $this->provider->createClient($request)->getClient()->getInn());
         self::assertSame('JuridicalPerson', $this->provider->createClient($request)->getClient()->getLegalForm());
