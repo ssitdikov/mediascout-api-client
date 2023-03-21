@@ -6,6 +6,8 @@ namespace Ssitdikov\MediascoutApiClient;
 
 use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\BadResponseException;
+use Ssitdikov\MediascoutApiClient\Exception\ErrorResponseException;
 use Ssitdikov\MediascoutApiClient\Exception\TypeErrorException;
 use Ssitdikov\MediascoutApiClient\Request\Client\CreateClientRequest;
 use Ssitdikov\MediascoutApiClient\Request\Client\GetClientsRequest;
@@ -18,6 +20,7 @@ use Ssitdikov\MediascoutApiClient\Response\Client\GetClientsResponse;
 use Ssitdikov\MediascoutApiClient\Response\Contract\CreateContractResponse;
 use Ssitdikov\MediascoutApiClient\Response\Creative\CreateCreativeResponse;
 use Ssitdikov\MediascoutApiClient\Response\Creative\GetCreativesResponse;
+use Ssitdikov\MediascoutApiClient\Response\ErrorResponse;
 use Ssitdikov\MediascoutApiClient\Response\MediascoutApiResponseInterface;
 use TypeError;
 
@@ -71,8 +74,17 @@ class ApiProvider
                 $request->getParams()
             )->getBody()->getContents();
             return ApiResponseSerializer::serialize($response, $request->getResultObject());
-        } catch (TypeError $type_error) {
-            throw new TypeErrorException($type_error->getMessage());
+        } catch (BadResponseException $exception) {
+            $message = json_decode(
+                $exception->getResponse()->getBody()->getContents(),
+                true,
+                16,
+                JSON_THROW_ON_ERROR
+            );
+            if (isset($message['ErrorItems'])) {
+                throw new ErrorResponseException($exception->getResponse()->getBody()->getContents());
+            }
+            throw new \Exception($exception->getResponse()->getBody()->getContents());
         }
     }
 
