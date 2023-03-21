@@ -75,14 +75,15 @@ class ApiProvider
             )->getBody()->getContents();
             return ApiResponseSerializer::serialize($response, $request->getResultObject());
         } catch (BadResponseException $exception) {
+            $result = $exception->getResponse()->getBody()->getContents();
             $message = json_decode(
-                $exception->getResponse()->getBody()->getContents(),
+                $result,
                 true,
                 16,
                 JSON_THROW_ON_ERROR
             );
             if (isset($message['ErrorItems'])) {
-                throw new ErrorResponseException($exception->getResponse()->getBody()->getContents());
+                throw new ErrorResponseException($result);
             }
             throw new \Exception($exception->getResponse()->getBody()->getContents());
         }
