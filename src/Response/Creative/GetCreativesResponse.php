@@ -22,6 +22,11 @@ class GetCreativesResponse implements MediascoutApiResponseInterface
         return $this->creatives[$position]['Erid'];
     }
 
+    public function getCreatives(): array
+    {
+        return $this->creatives;
+    }
+
     public static function init(array $response): MediascoutApiResponseInterface
     {
         try {
