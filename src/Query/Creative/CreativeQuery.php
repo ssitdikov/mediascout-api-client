@@ -35,6 +35,7 @@ class CreativeQuery implements \JsonSerializable
                 'type' => $this->creative->getType(),
                 'form' => $this->creative->getForm(),
                 'advertiserUrl' => $this->creative->getAdvertiseUrl(),
+                'advertiserUrls' => $this->creative->getAdvertiseUrls(),
                 'description' => $this->creative->getDescription(),
                 'targetAudience' => $this->creative->getTargetAudience(),
                 'isSocial' => $this->creative->isSocial(),

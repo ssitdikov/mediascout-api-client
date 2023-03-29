@@ -9,7 +9,12 @@ class Creative implements \JsonSerializable
     private string $finalContractId;
     private string $type;
     private string $form;
+    /**
+     * @deprecated
+     * @var string
+     */
     private string $advertiseUrl;
+    private array $advertiseUrls = [];
     private string $description = '';
     private string $targetAudience = '';
     private bool $isSocial = false;
@@ -113,6 +118,7 @@ class Creative implements \JsonSerializable
     }
 
     /**
+     * @deprecated
      * @return string
      */
     public function getAdvertiseUrl(): string
@@ -121,6 +127,7 @@ class Creative implements \JsonSerializable
     }
 
     /**
+     * @deprecated
      * @param string $advertiseUrl
      * @return Creative
      */
@@ -279,5 +286,32 @@ class Creative implements \JsonSerializable
         return [
             'id' => $this->getId()
         ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getAdvertiseUrls(): array
+    {
+        return $this->advertiseUrls;
+    }
+
+    /**
+     * @param array $advertiseUrls
+     * @return Creative
+     */
+    public function setAdvertiseUrls(array $advertiseUrls): Creative
+    {
+        $this->advertiseUrls = $advertiseUrls;
+        return $this;
+    }
+
+    public function addAdvertiseUrl(string $advertiseUrl): bool
+    {
+        if (!in_array($advertiseUrl, $this->advertiseUrls)) {
+            $this->advertiseUrls[] = $advertiseUrl;
+            return true;
+        }
+        return false;
     }
 }
