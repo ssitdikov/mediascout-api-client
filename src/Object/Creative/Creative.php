@@ -5,6 +5,8 @@ namespace Ssitdikov\MediascoutApiClient\Object\Creative;
 class Creative implements \JsonSerializable
 {
     private string $id = '';
+    private string $creativeGroupId = '';
+    private string $creativeGroupName = '';
     private string $initialContractId = '';
     private string $finalContractId;
     private string $type;
@@ -35,6 +37,38 @@ class Creative implements \JsonSerializable
     {
         $this->id = $id;
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCreativeGroupId(): string
+    {
+        return $this->creativeGroupId;
+    }
+
+    /**
+     * @param string $creativeGroupId
+     */
+    public function setCreativeGroupId(string $creativeGroupId): void
+    {
+        $this->creativeGroupId = $creativeGroupId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCreativeGroupName(): string
+    {
+        return $this->creativeGroupName;
+    }
+
+    /**
+     * @param string $creativeGroupName
+     */
+    public function setCreativeGroupName(string $creativeGroupName): void
+    {
+        $this->creativeGroupName = $creativeGroupName;
     }
 
     /**
