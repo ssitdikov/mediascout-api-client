@@ -12,12 +12,14 @@ use Ssitdikov\MediascoutApiClient\Exception\TypeErrorException;
 use Ssitdikov\MediascoutApiClient\Request\Client\CreateClientRequest;
 use Ssitdikov\MediascoutApiClient\Request\Client\GetClientsRequest;
 use Ssitdikov\MediascoutApiClient\Request\Contract\CreateContractRequest;
+use Ssitdikov\MediascoutApiClient\Request\Contract\GetContractsRequest;
 use Ssitdikov\MediascoutApiClient\Request\Creative\CreateCreativeRequest;
 use Ssitdikov\MediascoutApiClient\Request\Creative\GetCreativesRequest;
 use Ssitdikov\MediascoutApiClient\Request\MediascoutApiRequestInterface;
 use Ssitdikov\MediascoutApiClient\Response\Client\CreateClientResponse;
 use Ssitdikov\MediascoutApiClient\Response\Client\GetClientsResponse;
 use Ssitdikov\MediascoutApiClient\Response\Contract\CreateContractResponse;
+use Ssitdikov\MediascoutApiClient\Response\Contract\GetContractsResponse;
 use Ssitdikov\MediascoutApiClient\Response\Creative\CreateCreativeResponse;
 use Ssitdikov\MediascoutApiClient\Response\Creative\GetCreativesResponse;
 use Ssitdikov\MediascoutApiClient\Response\ErrorResponse;
@@ -28,6 +30,7 @@ use TypeError;
  * @method GetClientsResponse getClients(GetClientsRequest $request)
  * @method CreateClientResponse createClient(CreateClientRequest $request)
  * @method CreateContractResponse createContract(CreateContractRequest $request)
+ * @method GetContractsResponse getContacts(GetContractsRequest $request)
  * @method CreateCreativeResponse createCreative(CreateCreativeRequest $request)
  * @method GetCreativesResponse getCreatives(GetCreativesRequest $request)
  */
