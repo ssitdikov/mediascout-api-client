@@ -14,4 +14,14 @@ interface CreativeFormTypes
     public const AUDIO_BROADCAST = 'AudioBroadcast';
     public const VIDEO_BROADCAST = 'VideoBroadcast';
     public const OTHER = 'Other';
+
+
+    public const TEXT_VIDEO_BLOCK = 'TextVideoBlock';
+    public const TEXT_AUDIO_BLOCK = 'TextAudioBlock';
+
+    public const TEXT_AUDIO_VIDEO_BLOCK = 'TextAudioVideoBlock';
+    public const TEXT_GRAPHIC_VIDEO_BLOCK = 'TextGraphicVideoBlock';
+    public const TEXT_GRAPHIC_AUDIO_BLOCK = 'TextGraphicAudioBlock';
+    public const TEXT_GRAPHIC_AUDIO_VIDEO_BLOCK = 'TextGraphicAudioVideoBlock';
+    public const BANNER_HTML5 = 'BannerHtml5';
 }

@@ -2,6 +2,8 @@
 
 namespace Ssitdikov\MediascoutApiClient\Object\Creative;
 
+use Ssitdikov\MediascoutApiClient\Types\CreativeMediaDataFileTypes;
+
 class Creative implements \JsonSerializable
 {
     private string $id = '';
@@ -280,11 +282,18 @@ class Creative implements \JsonSerializable
         return $this;
     }
 
-    public function addMedia(string $fileName, string $content): Creative
+    public function addMedia(string $fileName, string $content, string $fileType, string $description = ''): Creative
     {
+        $isArchive = false;
+        if ($fileType === CreativeMediaDataFileTypes::ZIP) {
+            $isArchive = true;
+        }
         $this->mediaData[] = [
             'FileName' => $fileName,
-            'FileContentBase64' => $content
+            'FileContentBase64' => $content,
+            'FileType' => $fileType,
+            'IsArchive' => $isArchive,
+            'Description' => $description
         ];
 
         return $this;
