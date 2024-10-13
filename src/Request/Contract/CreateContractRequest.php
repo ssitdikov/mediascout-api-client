@@ -25,7 +25,7 @@ class CreateContractRequest implements MediascoutApiRequestInterface
     public function getRoute(): string
     {
         return $this->query->getContract()->getFinalContractId()
-            ? '/Contracts/CreateInitialContract' : '/Contracts/CreateFinalContract';
+            ? '/contracts/initial' : '/contracts/final';
     }
 
     public function getHttpMethod(): string

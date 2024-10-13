@@ -23,9 +23,9 @@ class CreateClientResponse implements MediascoutApiResponseInterface
     public static function init(array $response): MediascoutApiResponseInterface
     {
         try {
-            $client = (new Client($response['Name'], $response['Inn']))
-                ->setLegalForm($response['LegalForm'])
-                ->setId($response['Id']);
+            $client = (new Client($response['name'], $response['inn']))
+                ->setLegalForm($response['legalForm'])
+                ->setId($response['id']);
             return new self($client);
         } catch (\Exception $exception) {
             throw new \Exception(

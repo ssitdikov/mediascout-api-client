@@ -20,9 +20,9 @@ class GetClientsResponse implements MediascoutApiResponseInterface
         $self = new self();
         if (!empty($response)) {
             foreach ($response as $item) {
-                $client = (new Client($item['Name'], $item['Inn']))
-                    ->setLegalForm($item['LegalForm'])
-                    ->setId($item['Id']);
+                $client = (new Client($item['name'], $item['inn']))
+                    ->setLegalForm($item['legalForm'])
+                    ->setId($item['id']);
                 $self->addClient($client);
             }
         } else {

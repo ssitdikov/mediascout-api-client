@@ -20,7 +20,7 @@ class GetContractsRequest implements MediascoutApiRequestInterface
 
     public function getRoute(): string
     {
-        return '/Contracts/GetFinalContracts';
+        return '/contracts/final';
     }
 
     public function getHttpMethod(): string

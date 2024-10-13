@@ -22,7 +22,7 @@ class CreateClientRequest implements MediascoutApiRequestInterface
 
     public function getRoute(): string
     {
-        return '/Clients/CreateClient';
+        return '/clients';
     }
 
     public function getHttpMethod(): string

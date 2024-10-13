@@ -20,12 +20,12 @@ class GetCreativesRequest implements MediascoutApiRequestInterface
 
     public function getRoute(): string
     {
-        return '/Creatives/GetCreatives';
+        return '/creatives';
     }
 
     public function getHttpMethod(): string
     {
-        return self::HTTP_METHOD_POST;
+        return self::HTTP_METHOD_GET;
     }
 
     public function getHeaders(): array

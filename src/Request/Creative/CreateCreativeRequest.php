@@ -19,7 +19,7 @@ class CreateCreativeRequest implements MediascoutApiRequestInterface
 
     public function getRoute(): string
     {
-        return '/Creatives/CreateCreative';
+        return '/creatives';
     }
 
     public function getHttpMethod(): string

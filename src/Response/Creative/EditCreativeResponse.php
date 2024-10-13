@@ -25,7 +25,7 @@ class EditCreativeResponse implements MediascoutApiResponseInterface
     public static function init(array $response): MediascoutApiResponseInterface
     {
         try {
-            $creative = (new Creative())->setId($response['Id']);
+            $creative = (new Creative())->setId($response['id']);
             return new self($creative);
         } catch (\Exception $exception) {
             throw new \Exception($exception->getMessage());
