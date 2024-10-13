@@ -22,7 +22,7 @@ class GetClientsRequest implements MediascoutApiRequestInterface
 
     public function getRoute(): string
     {
-        return '/clients';
+        return sprintf('/clients?inn=%s', $this->clientQuery->getClient()->getInn());
     }
 
     public function getHttpMethod(): string
