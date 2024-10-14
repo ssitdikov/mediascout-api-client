@@ -20,7 +20,7 @@ class GetCreativesRequest implements MediascoutApiRequestInterface
 
     public function getRoute(): string
     {
-        return '/creatives';
+        return sprintf('/creatives?Erids=%s', $this->creative->getCreative()->getErid());
     }
 
     public function getHttpMethod(): string
