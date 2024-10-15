@@ -28,7 +28,7 @@ class CreateCreativeResponse implements MediascoutApiResponseInterface
     public static function init(array $response): MediascoutApiResponseInterface
     {
         try {
-            $creative = (new Creative())->setId($response['id']);
+            $creative = (new Creative())->setId($response['id'])->setErid($response['erid']);
             return new self($creative);
         } catch (\Exception $exception) {
             throw new \Exception('CreativeCreateException: ' . $exception->getMessage());
