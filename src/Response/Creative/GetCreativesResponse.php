@@ -19,7 +19,10 @@ class GetCreativesResponse implements MediascoutApiResponseInterface
      */
     public function getErid(int $position = 0): string
     {
-        return $this->creatives[$position]['erid'];
+        if (isset($this->creatives[$position])) {
+            return $this->creatives[$position]['erid'];
+        }
+        return $this->creatives['erid'];
     }
 
     public function getCreatives(): array
