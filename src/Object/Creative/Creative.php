@@ -282,12 +282,8 @@ class Creative implements \JsonSerializable
         return $this;
     }
 
-    public function addMedia(string $fileName, string $content, string $fileType, string $description = ''): Creative
+    public function addMedia(string $fileName, string $content, string $fileType, string $description = '', bool $isArchive = false): Creative
     {
-        $isArchive = false;
-        if ($fileType === CreativeMediaDataFileTypes::ZIP) {
-            $isArchive = true;
-        }
         $this->mediaData[] = [
             'FileName' => $fileName,
             'FileContentBase64' => $content,
