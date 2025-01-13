@@ -22,6 +22,7 @@ class Creative implements \JsonSerializable
     private array $textData = [];
 
     private string $erid = '';
+    private array $kktuCodes = [];
 
     /**
      * @return string
@@ -310,6 +311,17 @@ class Creative implements \JsonSerializable
     public function setErid(string $erid): Creative
     {
         $this->erid = $erid;
+        return $this;
+    }
+
+    public function getKktuCodes(): array
+    {
+        return $this->kktuCodes;
+    }
+
+    public function setKktuCodes(array $kktuCodes): Creative
+    {
+        $this->kktuCodes = $kktuCodes;
         return $this;
     }
 

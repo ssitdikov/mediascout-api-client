@@ -41,6 +41,7 @@ class CreativeQuery implements \JsonSerializable
                 'okvedCodes' => $this->creative->getCodes(),
                 'mediaData' => $this->creative->getMediaData(),
                 'textData' => $this->creative->getTextData(),
+                'kktuCodes' => $this->creative->getKktuCodes()
             ]
         );
     }
