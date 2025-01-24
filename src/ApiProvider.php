@@ -88,7 +88,10 @@ class ApiProvider
             if (isset($message['ErrorItems'])) {
                 throw new ErrorResponseException($result);
             }
-            throw new \Exception($exception->getResponse()->getBody()->getContents());
+            if (isset($message['detail'])) {
+                throw new ErrorResponseException($message['detail']);
+            }
+            throw new \Exception($result);
         }
     }
 
