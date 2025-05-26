@@ -21,7 +21,18 @@ class GetInitialContractsRequest implements MediascoutApiRequestInterface
 
     public function getRoute(): string
     {
-        return '/contracts/initial';
+        $baseRoute = '/contracts/initial';
+        $data = $this->contract->jsonSerialize();
+
+        if (!empty($data['ContractorInn']) && !empty($data['ClientInn'])) {
+            $query = http_build_query([
+                'ContractorInn' => $data['ContractorInn'],
+                'ClientInn' => $data['ClientInn']
+            ]);
+            return $baseRoute . '?' . $query;
+        }
+
+        return $baseRoute;
     }
 
     public function getHttpMethod(): string
