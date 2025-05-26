@@ -3,17 +3,18 @@
 namespace Ssitdikov\MediascoutApiClient\Request\Contract;
 
 use Ssitdikov\MediascoutApiClient\Query\Contract\GetContractQuery;
+use Ssitdikov\MediascoutApiClient\Query\Contract\GetInitialContractQuery;
 use Ssitdikov\MediascoutApiClient\Request\MediascoutApiRequestInterface;
 use Ssitdikov\MediascoutApiClient\Response\Contract\GetContractsResponse;
 
 class GetInitialContractsRequest implements MediascoutApiRequestInterface
 {
-    private GetContractQuery $contract;
+    private GetInitialContractQuery $contract;
 
     /**
-     * @param GetContractQuery $contract
+     * @param GetInitialContractQuery $contract
      */
-    public function __construct(GetContractQuery $contract)
+    public function __construct(GetInitialContractQuery $contract)
     {
         $this->contract = $contract;
     }
