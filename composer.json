@@ -23,6 +23,7 @@
     }
   ],
   "require": {
+    "php": "^8.2",
     "guzzlehttp/guzzle": "^7.5",
     "symfony/dotenv": "^6.1",
     "ext-json": "*"
