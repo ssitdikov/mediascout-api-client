@@ -30,7 +30,8 @@ use TypeError;
  * @method GetClientsResponse getClients(GetClientsRequest $request)
  * @method CreateClientResponse createClient(CreateClientRequest $request)
  * @method CreateContractResponse createContract(CreateContractRequest $request)
- * @method GetContractsResponse getContacts(GetContractsRequest $request)
+ * @method GetContractsResponse getContracts(GetContractsRequest $request)
+ * @method GetInitialContractsResponse getInitialContracts(GetInitialContractsRequest $request)
  * @method CreateCreativeResponse createCreative(CreateCreativeRequest $request)
  * @method GetCreativesResponse getCreatives(GetCreativesRequest $request)
  */
