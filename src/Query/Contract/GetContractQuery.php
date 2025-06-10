@@ -28,7 +28,8 @@ class GetContractQuery implements \JsonSerializable
     {
         return array_filter(
             [
-                'FinalContractId' => $this->contract->getFinalContractId()
+                'FinalContractId' => $this->contract->getFinalContractId(),
+                'ClientId' => $this->contract->getClientId(),
             ]
         );
     }

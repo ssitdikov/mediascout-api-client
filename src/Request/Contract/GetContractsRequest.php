@@ -20,7 +20,17 @@ class GetContractsRequest implements MediascoutApiRequestInterface
 
     public function getRoute(): string
     {
-        return '/contracts/final';
+        $baseRoute = '/contracts/final';
+        $data = $this->contract->jsonSerialize();
+
+        if (!empty($data['ClientId'])) {
+            $query = http_build_query([
+                'ClientId' => $data['ClientId']
+            ]);
+            return $baseRoute . '?' . $query;
+        }
+
+        return $baseRoute;
     }
 
     public function getHttpMethod(): string
