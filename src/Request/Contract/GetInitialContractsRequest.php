@@ -2,7 +2,6 @@
 
 namespace Ssitdikov\MediascoutApiClient\Request\Contract;
 
-use Ssitdikov\MediascoutApiClient\Query\Contract\GetOuterContractQuery;
 use Ssitdikov\MediascoutApiClient\Query\Contract\GetInitialContractQuery;
 use Ssitdikov\MediascoutApiClient\Request\MediascoutApiRequestInterface;
 use Ssitdikov\MediascoutApiClient\Response\Contract\GetContractsResponse;
