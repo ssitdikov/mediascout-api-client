@@ -34,7 +34,8 @@ class CreateContractResponse implements MediascoutApiResponseInterface
                 ->setId($response['id'])
                 ->setNumber($response['number'])
                 ->setDate(new \DateTime($response['date']))
-                ->setClientId($response['clientId']);
+                ->setClientId($response['clientId'] ?? '')
+                ->setContractorId($response['contractorId'] ?? '');
             return new self($contract);
         } catch (\Exception $exception) {
             throw new \Exception(
