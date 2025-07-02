@@ -3,25 +3,24 @@
 namespace Ssitdikov\MediascoutApiClient\Request\Contract;
 
 use Ssitdikov\MediascoutApiClient\Query\Contract\GetOuterContractQuery;
-use Ssitdikov\MediascoutApiClient\Query\Contract\GetInitialContractQuery;
 use Ssitdikov\MediascoutApiClient\Request\MediascoutApiRequestInterface;
 use Ssitdikov\MediascoutApiClient\Response\Contract\GetContractsResponse;
 
-class GetInitialContractsRequest implements MediascoutApiRequestInterface
+class GetOuterContractsRequest implements MediascoutApiRequestInterface
 {
-    private GetInitialContractQuery $contract;
+    private GetOuterContractQuery $contract;
 
     /**
-     * @param GetInitialContractQuery $contract
+     * @param GetOuterContractQuery $contract
      */
-    public function __construct(GetInitialContractQuery $contract)
+    public function __construct(GetOuterContractQuery $contract)
     {
         $this->contract = $contract;
     }
 
     public function getRoute(): string
     {
-        $baseRoute = '/contracts/initial';
+        $baseRoute = '/contracts/outer';
         $data = $this->contract->jsonSerialize();
 
         if (!empty($data['ContractorInn']) && !empty($data['ClientInn'])) {

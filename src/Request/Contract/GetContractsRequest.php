@@ -2,18 +2,18 @@
 
 namespace Ssitdikov\MediascoutApiClient\Request\Contract;
 
-use Ssitdikov\MediascoutApiClient\Query\Contract\GetContractQuery;
+use Ssitdikov\MediascoutApiClient\Query\Contract\GetOuterContractQuery;
 use Ssitdikov\MediascoutApiClient\Request\MediascoutApiRequestInterface;
 use Ssitdikov\MediascoutApiClient\Response\Contract\GetContractsResponse;
 
 class GetContractsRequest implements MediascoutApiRequestInterface
 {
-    private GetContractQuery $contract;
+    private GetOuterContractQuery $contract;
 
     /**
-     * @param GetContractQuery $contract
+     * @param GetOuterContractQuery $contract
      */
-    public function __construct(GetContractQuery $contract)
+    public function __construct(GetOuterContractQuery $contract)
     {
         $this->contract = $contract;
     }
