@@ -14,6 +14,7 @@ use Ssitdikov\MediascoutApiClient\Request\Client\GetClientsRequest;
 use Ssitdikov\MediascoutApiClient\Request\Contract\CreateContractRequest;
 use Ssitdikov\MediascoutApiClient\Request\Contract\GetContractsRequest;
 use Ssitdikov\MediascoutApiClient\Request\Contract\GetInitialContractsRequest;
+use Ssitdikov\MediascoutApiClient\Request\Contract\GetOuterContractsRequest;
 use Ssitdikov\MediascoutApiClient\Request\Creative\CreateCreativeRequest;
 use Ssitdikov\MediascoutApiClient\Request\Creative\GetCreativesRequest;
 use Ssitdikov\MediascoutApiClient\Request\MediascoutApiRequestInterface;
@@ -36,6 +37,7 @@ use TypeError;
  * @method GetInitialContractsResponse getInitialContracts(GetInitialContractsRequest $request)
  * @method CreateCreativeResponse createCreative(CreateCreativeRequest $request)
  * @method GetCreativesResponse getCreatives(GetCreativesRequest $request)
+ * @method GetContractsResponse getOuterContracts(GetOuterContractsRequest $request)
  */
 class ApiProvider
 {
