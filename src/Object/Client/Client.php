@@ -19,6 +19,8 @@ class Client implements \JsonSerializable
     private string $epayNumber = '';
     private string $regNumber = '';
     private string $oksmNumber = '';
+    private string $physicalPersonAddress = '';
+    private bool $isPhysicalPersonAddressExists = false;
     private string $status = '';
 
     /**
@@ -173,6 +175,46 @@ class Client implements \JsonSerializable
     public function setOksmNumber(string $oksmNumber): Client
     {
         $this->oksmNumber = $oksmNumber;
+        return $this;
+    }
+
+    /**
+     * Адрес физлица (свободная строка). Обязателен для контрагентов-физлиц/ИП
+     * при регистрации некоторых договоров/актов (изменения Mediascout API с 01.09.2026).
+     * @return string
+     */
+    public function getPhysicalPersonAddress(): string
+    {
+        return $this->physicalPersonAddress;
+    }
+
+    /**
+     * @param string $physicalPersonAddress
+     * @return Client
+     */
+    public function setPhysicalPersonAddress(string $physicalPersonAddress): Client
+    {
+        $this->physicalPersonAddress = $physicalPersonAddress;
+        return $this;
+    }
+
+    /**
+     * Признак "Адрес заполнен" — вычисляется сервером Mediascout, полю нет смысла
+     * передавать его в запросах на создание/редактирование клиента.
+     * @return bool
+     */
+    public function isPhysicalPersonAddressExists(): bool
+    {
+        return $this->isPhysicalPersonAddressExists;
+    }
+
+    /**
+     * @param bool $isPhysicalPersonAddressExists
+     * @return Client
+     */
+    public function setIsPhysicalPersonAddressExists(bool $isPhysicalPersonAddressExists): Client
+    {
+        $this->isPhysicalPersonAddressExists = $isPhysicalPersonAddressExists;
         return $this;
     }
 

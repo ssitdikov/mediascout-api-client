@@ -70,6 +70,7 @@ class ClientQuery implements \JsonSerializable
                 'EpayNumber' => $this->client->getEpayNumber(),
                 'RegNumber' => $this->client->getRegNumber(),
                 'OksmNumber' => $this->client->getOksmNumber(),
+                'PhysicalPersonAddress' => $this->client->getPhysicalPersonAddress(),
                 'Status' => $this->client->getStatus()
             ]
         );

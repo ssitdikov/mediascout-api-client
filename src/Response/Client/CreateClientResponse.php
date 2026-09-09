@@ -25,7 +25,9 @@ class CreateClientResponse implements MediascoutApiResponseInterface
         try {
             $client = (new Client($response['name'], $response['inn']))
                 ->setLegalForm($response['legalForm'])
-                ->setId($response['id']);
+                ->setId($response['id'])
+                ->setPhysicalPersonAddress($response['physicalPersonAddress'] ?? '')
+                ->setIsPhysicalPersonAddressExists((bool)($response['isPhysicalPersonAddressExists'] ?? false));
             return new self($client);
         } catch (\Exception $exception) {
             throw new \Exception(
